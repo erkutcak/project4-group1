@@ -21,6 +21,10 @@ db.init_app(app)
 api = Api(app)
 
 
+@app.route('/')
+def homepage():
+    return 'homepage'
+
 class Items(Resource):
     def get(self):
         i_list = [i.to_dict() for i in Item.query.all()]

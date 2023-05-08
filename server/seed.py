@@ -29,7 +29,7 @@ def create_users():
 
 def create_items():
     # Item.query.delete()
-    i1= Item(name='Black Velvet Couch', category='furniture and decor', price=148.99, description='Black Velvet Couch, great for lounging.', for_sale=True, user_id=1)
+    i1= Item(name='Black Velvet Couch', category='furniture and decor', price=148.99, description='Black Velvet Couch, great for lounging.', for_sale=True, user_id=1, cart_id=1)
     i2= Item(name='White Microfiber Towel', category='household items', price=8.98, description='Microfiber Bath Towel', for_sale=True, user_id=2)
     i3= Item(name='Nutella', category='food/beverage', price=30.49, description='10lb tub of Nutella', for_sale=True, user_id=3)
     i4= Item(name='Native Face Cleanser', category='beauty/health', price=18.99, description='Rose scented face cleanser for women', for_sale=True, user_id=3)

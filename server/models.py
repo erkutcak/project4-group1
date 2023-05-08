@@ -10,7 +10,7 @@ from config import db
 class Item(db.Model, SerializerMixin):
     __tablename__ = 'items'
 
-    serialize_rules = ('-id', '-created_at', '-updated_at', '-user', '-shoppingcart')
+    serialize_rules = ('-id', '-created_at', '-updated_at', '-user')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
