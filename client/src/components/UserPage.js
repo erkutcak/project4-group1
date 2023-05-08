@@ -4,6 +4,10 @@ function UserPage() {
     return (
         <div>
             <h1>User Page</h1>
+        
+        
+        
+            <p>Sell New Item</p>
         </div>
     )
     }
