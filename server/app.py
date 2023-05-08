@@ -31,11 +31,9 @@ class Items(Resource):
     def post (self):
         data = request.get_json()
         newItem = Item(
-            id = data["id"],
             name = data["name"],
             category = data["category"],
             price = data["price"],
-            image = data["image"],
             description = data["description"],
             for_sale = data["for_sale"]
             )
@@ -60,8 +58,9 @@ class Users(Resource):
     def post (self):
         data = request.get_json()
         newUser = User(
+            email = data['email'],
             username= data["username"],
-            password = data["password"]
+            password = data["password"],
             )
         try:
             db.session.add(newUser)
@@ -85,7 +84,6 @@ class ShoppingCarts(Resource):
     def post (self):
         data = request.get_json()
         newShoppingCart = ShoppingCart(
-            id = data["id"],
             user_id = data["user_id"]
             )
         try:
