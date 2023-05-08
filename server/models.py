@@ -10,7 +10,8 @@ from config import db
 class Item(db.Model, SerializerMixin):
     __tablename__ = 'items'
 
-    serialize_rules = ('-transactions', '-users', '-shopping_carts')
+    serialize_rules = ('-id', '-created_at', '-updated_at', '-user', '-shoppingcart')
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     category = db.Column(db.String, nullable=False)
@@ -27,14 +28,14 @@ class Item(db.Model, SerializerMixin):
 
 
     #transaction = db.relationship('Transaction', backref='item', cascade='all, delete, delete-orphan')
-    #shoppingcart = db.relationship('ShoppingCart', backref='items', cascade='all, delete, delete-orphan')
+    # shoppingcart2 = db.relationship('ShoppingCart', backref='items')
     #users = association_proxy('items', 'user')
 
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules = ('-transactions', '-items', '-shopping_carts')
+    serialize_rules = ('-transactions', '-items', '-cart', '-created_at', '-updated_at')
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)
@@ -51,19 +52,20 @@ class User(db.Model, SerializerMixin):
 class ShoppingCart(db.Model, SerializerMixin):
     __tablename__ = 'shopping_carts'
 
-    serialize_rules = ('-transactions', '-items', '-users')
+    serialize_rules = ('-user',)
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    items = db.relationship('Item', backref='shoppingcart', cascade='all, delete, delete-orphan')
-    #transaction = db.relationship('Transaction', backref='shoppingcart', cascade='all, delete, delete-orphan')
+    # items = db.relationship('Item', backref='shoppingcart', cascade='all, delete, delete-orphan')
+    items = association_proxy('shopping_carts', 'item')
+    # transaction = db.relationship('Transaction', backref='shoppingcart', cascade='all, delete, delete-orphan')
     
 
 class Transaction(db.Model, SerializerMixin):
     __tablename__ = 'transactions'
 
-    serialize_rules = ('-shopping_carts', '-items', '-users')
+    serialize_rules = ('-items', '-users', '-updated_at')
 
     id = db.Column(db.Integer, primary_key=True)
     seller_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)

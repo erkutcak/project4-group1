@@ -72,8 +72,6 @@ class Users(Resource):
         
 api.add_resource(Users, '/users')
 
-
-
 class ShoppingCarts(Resource):
     def get(self):
         sc_list = [sc.to_dict() for sc in ShoppingCart.query.all()]
@@ -95,8 +93,6 @@ class ShoppingCarts(Resource):
             return make_response({'error': f'{repr(e)}'}, 422)
 
 api.add_resource(ShoppingCarts, '/shoppingcarts')
-
-
 
 class TransactionsById(Resource):
     def get(self, id):
