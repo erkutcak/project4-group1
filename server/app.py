@@ -6,7 +6,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from config import app, db, api
-from models import User, ShoppingCart, Transaction
+from models import Item, User, ShoppingCart, Transaction
 # from models import User, Recipe
 
 app = Flask(__name__)
@@ -19,6 +19,35 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 api = Api(app)
+
+
+class Items(Resource):
+    def get(self):
+        i_list = [i.to_dict() for i in Item.query.all()]
+        if len(i_list) == 0:
+            return make_response({'error': 'no Items'}, 404)
+        return make_response(i_list, 200)
+    
+    def post (self):
+        data = request.get_json()
+        newItem = Item(
+            id = data["id"],
+            name = data["name"],
+            category = data["category"],
+            price = data["price"],
+            image = data["image"],
+            description = data["description"],
+            for_sale = data["for_sale"]
+            )
+        try:
+            db.session.add(newItem)
+            db.session.commit()
+            return make_response (newItem.to_dict(), 200)
+        except Exception as e:
+            db.session.rollback()
+            return make_response({'error': f'{repr(e)}'}, 422)
+        
+api.add_resource(Items, '/items')
 
 
 class Users(Resource):
@@ -44,11 +73,13 @@ class Users(Resource):
         
 api.add_resource(Users, '/users')
 
-class ShoppingCart(Resource):
+
+
+class ShoppingCarts(Resource):
     def get(self):
         sc_list = [sc.to_dict() for sc in ShoppingCart.query.all()]
         if len(sc_list) == 0:
-            return make_response({'error': 'no Customers'}, 404)
+            return make_response({'error': 'no Carts'}, 404)
         return make_response(sc_list, 200)
     
     def post (self):
@@ -65,7 +96,9 @@ class ShoppingCart(Resource):
             db.session.rollback()
             return make_response({'error': f'{repr(e)}'}, 422)
 
-api.add_resource(ShoppingCart, '/shoppingcarts')
+api.add_resource(ShoppingCarts, '/shoppingcarts')
+
+
 
 class TransactionsById(Resource):
     def get(self, id):
