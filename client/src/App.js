@@ -9,15 +9,21 @@ import SignUpForm from "./components/Signupform";
 
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  const onLogin = (x) => {
+    setUser(x)
+    console.log(x)
+  }
   
   return(
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login onLogin={onLogin}/>} />
       <Route path="/userId" element={<UserPage />} />
       <Route path="/userId/cart" element={<ShoppingCart />} />
       <Route path="/userId/transactions" element={<Transactions />} />
-      <Route path="/signup" element={<SignUpForm />} />
+      <Route path="/signup" element={<SignUpForm onLogin={onLogin} />} />
     </Routes>
   )
 

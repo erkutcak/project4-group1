@@ -192,8 +192,38 @@ class SignUp(Resource):
             return {'error': 'hi'}, 422
 api.add_resource(SignUp, '/signup')
 
+class CheckSession(Resource):
+    
+    def get(self):
 
+        if session.get('user_id'):
 
+            user = User.query.filter(User.id == session['user_id']).first()
+
+            return user.to_dict(), 200
+
+        return {'error': '401 Unauthorized'}, 401
+    
+api.add_resource(CheckSession, '/check_session')
+
+class Login(Resource):
+    def post(self):
+        request_json = request.get_json()
+
+        username = request_json.get("username")
+        password = request_json.get("password")
+
+        user = User.query.filter_by(username = username).first()
+        
+
+        if user:
+            if user.authenticate(password):
+                print(user.id)
+                session['user_id'] = user.id
+                return user.to_dict(), 200
+        else:
+            return {'error': 'Invalid Credentials'}, 401
+api.add_resource(Login, '/login')
 # Local imports
 
 # Views go here!
