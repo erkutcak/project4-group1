@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar"
+import homepage from './homepage.css'
 
 function HomePage() {
     

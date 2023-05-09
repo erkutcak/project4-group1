@@ -19,8 +19,8 @@ def create_users():
         user = User(
             email= fake.email(),
             username= fake.user_name(),
-            password= fake.password()
         )
+        user.password_hash = fake.password()
         # db.session.add(user)
         # db.session.commit()
         # print(f"Created user {user['username']}")

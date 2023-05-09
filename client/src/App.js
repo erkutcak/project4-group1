@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import UserPage from "./components/UserPage";
 import ShoppingCart from "./components/ShoppingCart";
 import Transactions from "./components/Transactions";
+import SignUpForm from "./components/Signupform";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/userId" element={<UserPage />} />
       <Route path="/userId/cart" element={<ShoppingCart />} />
       <Route path="/userId/transactions" element={<Transactions />} />
+      <Route path="/signup" element={<SignUpForm />} />
     </Routes>
   )
 

@@ -22,6 +22,11 @@ function NavBar() {
             >
                 LOGIN
             </NavLink>
+            <NavLink
+                to="/signup"
+            >
+                SIGN UP
+            </NavLink>
         </div>
   );
 }

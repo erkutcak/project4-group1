@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 
 # Standard library imports
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, make_response, jsonify, session
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from config import app, db, api
 from models import Item, User, ShoppingCart, Transaction
+from sqlalchemy.exc import IntegrityError
 # from models import User, Recipe
+
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -20,6 +23,7 @@ migrate = Migrate(app, db)
 db.init_app(app)
 api = Api(app)
 
+app.secret_key = b'`"\x9aJ.\\\xe4\xec\n\x1d\x16\x1fi\xf9{F'
 
 @app.route('/')
 def homepage():
@@ -159,6 +163,36 @@ class Transactions(Resource):
             return make_response({'error': f'{repr(e)}'}, 422)
         
 api.add_resource(Transactions, '/transactions')
+
+class SignUp(Resource):
+    def post(self):
+        request_json = request.get_json()
+        print(request_json)
+        username = request_json.get("username") 
+        email = request_json.get("email")
+        password = request_json.get("password")
+
+        user = User(
+            username = username,
+            email = email
+        )
+
+        user.password_hash = password
+        
+        try:
+            db.session.add(user)
+            print(db.session)
+            db.session.commit()
+
+            session['user_id'] = user.id
+
+            return user.to_dict(), 201
+        
+        except IntegrityError:
+            return {'error': 'hi'}, 422
+api.add_resource(SignUp, '/signup')
+
+
 
 # Local imports
 
