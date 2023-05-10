@@ -24,7 +24,7 @@ class Item(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate = db.func.now())
     
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    cart_id = db.Column(db.Integer, db.ForeignKey('shopping_carts.id'))
+    cart_id = db.Column(db.Integer, db.ForeignKey('shopping_carts.id')) 
     #transaction_id = db.Column(db.Integer, db.ForeignKey('transactions.id'), nullable=True)
 
 

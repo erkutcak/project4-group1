@@ -177,19 +177,33 @@ class SignUp(Resource):
             email = email
         )
 
+
+        print(user.id)
+
         user.password_hash = password
         
         try:
             db.session.add(user)
             print(db.session)
             db.session.commit()
+            # db.session.add(cart)
+            # db.session.commit()
 
             session['user_id'] = user.id
+
+            cart = ShoppingCart(
+                user_id = user.id)
+            db.session.add(cart)
+            db.session.commit()
+            
+            print(user.id)
 
             return user.to_dict(), 201
         
         except IntegrityError:
             return {'error': 'hi'}, 422
+        
+        
 api.add_resource(SignUp, '/signup')
 
 class CheckSession(Resource):
