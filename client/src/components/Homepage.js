@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar"
 import homepage from './homepage.css'
 
-function HomePage() {
+function HomePage({user, onLogin}) {
     
         const [items, setItems] = useState([])
     
@@ -14,7 +14,7 @@ function HomePage() {
     
     return (
         <div className="header">
-            <NavBar />
+            <NavBar user={user} onLogin={onLogin}/>
             <h1>Featured Items</h1>
             <div className="card-container">
                 {items.map((item) => (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Login({onLogin}) {
     const [username, setUsername] = useState("");
@@ -25,6 +26,14 @@ function Login({onLogin}) {
         });
       }
     return (
+        <div>
+          <NavLink
+            to="/"
+            exact
+            >
+                HOME
+            </NavLink>
+        
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input
@@ -44,6 +53,7 @@ function Login({onLogin}) {
             />
             <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
         </form>
+        </div>
     )
     }
 
