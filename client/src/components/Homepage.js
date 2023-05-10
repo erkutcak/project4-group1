@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar"
 import homepage from './homepage.css'
+import Item from "./Item";
 
-function HomePage({user, onLogin}) {
-    
-        const [items, setItems] = useState([])
-    
-    useEffect(() => {
-        fetch('http://127.0.0.1:5555/items')
-            .then((response) => response.json())
-            .then((data) => setItems(data));
-    }, []);
+function HomePage({items, user, onLogin, handleCartClick}) {
+
+    const displayItems = items.map((item) => {
+        return <Item item={item} handleCartClick={handleCartClick}/>
+    })
     
     return (
         <div className="header">
-            <NavBar user={user} onLogin={onLogin}/>
-            <h1>Featured Items</h1>
-            <div className="card-container">
-                {items.map((item) => (
-                    <div key={item.id} className="card">
-                        <h3>{item.name}</h3>
-                        <p>Price: {item.price}</p>
-                    </div>
-                ))}
+            <div className="category-container">
+                <h2>Categories</h2>
+                <li>Beauty & Health</li>
+                <li>Food & Beverage</li>
+                <li>Furniture & Decor</li>
+                <li>Household Items</li>
+                <li>Pet Supplies</li>
+                <li>Office Equipment</li>
+                <li>Clothing</li>
+                <li>Electronics</li>
+                <li>Books</li>
+                <li>Toys</li>
+                <li>Sports & Outdoors</li>
+                <li>Auto Parts</li>
+            </div>
+            <div>
+                <h1>Featured Items</h1>
+                <div className="item-container">
+                    {displayItems}
+                </div>
             </div>
         </div>
         )

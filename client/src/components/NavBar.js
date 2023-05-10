@@ -24,6 +24,12 @@ function NavBar({user, onLogin}) {
             >
                 SELL
             </NavLink>
+            <NavLink
+                to="/userId/cart"
+                exact
+            >
+                CART
+            </NavLink>
             <h1 onClick={handleLogout}>Logout</h1>
         </div>
     )}

@@ -43,7 +43,8 @@ class Items(Resource):
             category = data["category"],
             price = data["price"],
             description = data["description"],
-            for_sale = data["for_sale"]
+            image = data["image"],
+            user_id = data["user_id"]
             )
         try:
             db.session.add(newItem)
@@ -185,7 +186,10 @@ class SignUp(Resource):
             db.session.commit()
 
             session['user_id'] = user.id
-
+            cart = ShoppingCart(
+                user_id = user.id)
+            db.session.add(cart)
+            db.session.commit()
             return user.to_dict(), 201
         
         except IntegrityError:

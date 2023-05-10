@@ -11,7 +11,7 @@ from config import db, bcrypt
 class Item(db.Model, SerializerMixin):
     __tablename__ = 'items'
 
-    serialize_rules = ('-id', '-created_at', '-updated_at', '-user')
+    serialize_rules = ('-id', '-created_at', '-updated_at', '-user', '-for_sale')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -19,11 +19,11 @@ class Item(db.Model, SerializerMixin):
     price = db.Column(db.Float, nullable=False)
     image = db.Column(db.String)
     description = db.Column(db.String)
-    for_sale = db.Column(db.Boolean, nullable=False)
+    for_sale = db.Column(db.Boolean)
     created_at = db.Column(db.DateTime, server_default = db.func.now())
     updated_at = db.Column(db.DateTime, onupdate = db.func.now())
     
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     cart_id = db.Column(db.Integer, db.ForeignKey('shopping_carts.id'))
     #transaction_id = db.Column(db.Integer, db.ForeignKey('transactions.id'), nullable=True)
 
