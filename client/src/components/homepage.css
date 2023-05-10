@@ -38,3 +38,8 @@
 .item-card h2{
     font-size: 14px;
 }
+
+.category-container{
+    text-decoration: none;
+    list-style: none;
+}
