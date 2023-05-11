@@ -43,3 +43,10 @@
     text-decoration: none;
     list-style: none;
 }
+
+.title-search-sort{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}

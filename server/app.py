@@ -103,6 +103,30 @@ class ShoppingCarts(Resource):
 
 api.add_resource(ShoppingCarts, '/shoppingcarts')
 
+class ItemsById(Resource):
+    def get(self, id):
+        i = Item.query.filter_by(id = id).first()
+        if i == None:
+            return make_response({'error': 'no Item'}, 404)
+        return make_response(i.to_dict(), 200)
+    
+    def patch(self, id):
+        try:
+            i = Item.query.filter_by(id = id).first()
+            for attr in request.get_json():
+                setattr(i, attr, request.get_json()[attr])
+            db.session.add(i)
+            db.session.commit()
+        except:
+            response_body = {
+                'error': 'no Item'
+            }
+            return make_response( response_body, 404 )
+        
+        return make_response(i.to_dict(), 200)
+
+api.add_resource(ItemsById, '/items/<int:id>')
+
 class TransactionsById(Resource):
     def get(self, id):
         t = Transaction.query.filter_by(id = id).first()
@@ -204,7 +228,7 @@ class CheckSession(Resource):
 
             user = User.query.filter(User.id == session['user_id']).first()
 
-            return user.to_dict(), 200
+            return make_response(user.to_dict(), 200)
 
         return {'error': '401 Unauthorized'}, 401
     
@@ -224,7 +248,7 @@ class Login(Resource):
             if user.authenticate(password):
                 print(user.id)
                 session['user_id'] = user.id
-                return user.to_dict(), 200
+                return make_response(user.to_dict(), 200)
         else:
             return {'error': 'Invalid Credentials'}, 401
         
