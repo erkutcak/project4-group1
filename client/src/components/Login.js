@@ -40,9 +40,10 @@ function Login({onLogin}) {
             </NavLink>
             </div>
         <form onSubmit={handleSubmit}>
-            <div className="space">
-            <label htmlFor="username">Username:</label>
+            <div className="center">
+            <label htmlFor="username"></label>
             <input
+            placeholder="Username"
             className="fc"
             type='text'
             id='username'
@@ -50,8 +51,10 @@ function Login({onLogin}) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
-            <label htmlFor="password">Password:</label>
+            <br></br>
+            <label htmlFor="password"></label>
             <input
+            placeholder="Password"
             className="fc"
             type='password'
             id='password'
@@ -59,6 +62,7 @@ function Login({onLogin}) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
+            <br></br>
             <button className="login-button" type="submit">{isLoading ? "Loading..." : "Login"}</button>
             </div>       
         </form>

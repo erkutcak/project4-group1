@@ -40,13 +40,14 @@ function SignUpForm({ onLogin }) {
 })};
     return (
         <div className="header"> 
-        <form className="space" onSubmit={handleSubmit}>
+        <form className="space center" onSubmit={handleSubmit}>
             <div className="top">
           <NavBar/>
             </div>
         
-            <label for="username">Username:</label>
-            <input 
+            <label for="username"></label>
+            <input
+            placeholder="Username" 
             className="fc"
             type='text'
             id='username'
@@ -54,8 +55,10 @@ function SignUpForm({ onLogin }) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
-            <label for="email">Email:</label>
+            <br></br>
+            <label for="email"></label>
             <input
+            placeholder="Email"
             className="fc"
             type="text"
             id='email'
@@ -63,16 +66,20 @@ function SignUpForm({ onLogin }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             />
-            <label for="password">Password:</label>
+            <br></br>
+            <label for="password"></label>
             <input 
+            placeholder="Password"
             className="fc"
             type='password'
             id='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
-            <label for="passwordConfirmation">Password Confirmation:</label>
+            <br></br>
+            <label for="passwordConfirmation"></label>
             <input 
+            placeholder="Confirm Password"
             className="fc"
             type='password'
             id='passwordConfirmation'
@@ -80,6 +87,7 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
             />
+            <br></br>
             <button className="login-button" type='submit' >{isLoading ? 'Loading...': 'Sign Up'}</button>
         </form> 
         </div>

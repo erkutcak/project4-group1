@@ -13,17 +13,17 @@
   }
   
   .drop-down-form:hover {
-    background-color: #a1885d;
-    color: #f6e6c7;
+    background-color: #000000;
+    color: #000000;
   }
 
   .fc {
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
-    color: #fff;
+    color: rgb(0, 0, 0);
     margin-bottom: 2rem;
     margin-top: 10px;
-    text-shadow: 2px 2px #6b3e1d;
+    text-shadow: 2px 2px #cecece;
   }
 
   .login-button {
