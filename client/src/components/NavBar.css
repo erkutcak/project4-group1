@@ -5,11 +5,13 @@
     background-color: #9da2a7;
     border-color: #888580;
     border-radius: 15px;
-    
+    text-align: center;
     height: 100px;
     padding: 0 2rem;
   }
   
+
+
   .logo {
     font-size: 3rem;
     font-family: 'Playfair Display', serif;

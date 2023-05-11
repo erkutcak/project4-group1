@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import NavBar from "./NavBar";
+import OtherNavBar from "./OtherNavBar";
 
 function ShoppingCart({user}) {
     
@@ -25,15 +25,10 @@ function ShoppingCart({user}) {
     
     return (
         <div className="header">
-          <div className="top">
-          <NavBar/>
-          <NavLink
-            to="/"
-            exact
-            >
-            </NavLink>
+          <div className="navbar">
+          <OtherNavBar/>
             </div>
-            <h1>Shopping Cart Page </h1>
+            <h1>Cart Page </h1>
             <div>
             </div>
         </div>
