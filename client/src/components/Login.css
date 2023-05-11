@@ -1,0 +1,46 @@
+.drop-down-form {
+    background-color: #f6e6c7;
+    border: 1px solid #a1885d;
+    border-radius: 5px;
+    color: #a1885d;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 250px;
+  }
+  
+  .drop-down-form:hover {
+    background-color: #a1885d;
+    color: #f6e6c7;
+  }
+
+  .fc {
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin-bottom: 2rem;
+    margin-top: 10px;
+    text-shadow: 2px 2px #6b3e1d;
+  }
+
+  .login-button {
+    background-color: #9da2a7; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .space{
+    align-items: center;
+  }

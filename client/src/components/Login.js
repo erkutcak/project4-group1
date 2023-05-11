@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import "./homepage.css"
+import NavBar from "./NavBar";
+import "./Login.css"
+import "./NavBar.css"
 
 function Login({onLogin}) {
     const [username, setUsername] = useState("");
@@ -26,17 +30,20 @@ function Login({onLogin}) {
         });
       }
     return (
-        <div>
+        <div className="header">
+          <div className="top">
+          <NavBar/>
           <NavLink
             to="/"
             exact
             >
-                HOME
             </NavLink>
-        
+            </div>
         <form onSubmit={handleSubmit}>
+            <div className="space">
             <label htmlFor="username">Username:</label>
             <input
+            className="fc"
             type='text'
             id='username'
             autoComplete="off"
@@ -45,13 +52,15 @@ function Login({onLogin}) {
             />
             <label htmlFor="password">Password:</label>
             <input
+            className="fc"
             type='password'
             id='password'
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
+            <button className="login-button" type="submit">{isLoading ? "Loading..." : "Login"}</button>
+            </div>       
         </form>
         </div>
     )

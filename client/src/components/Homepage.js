@@ -16,7 +16,7 @@ function HomePage({user, onLogin}) {
         <div className="header">
             <NavBar user={user} onLogin={onLogin}/>
             <h1>Featured Items</h1>
-            <div className="card-container">
+            <div className="grid-container">
                 {items.map((item) => (
                     <div key={item.id} className="card">
                         <h3>{item.name}</h3>
