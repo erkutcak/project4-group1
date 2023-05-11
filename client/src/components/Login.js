@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./homepage.css"
 import NavBar from "./NavBar";
+import "./homepage.css"
 import "./Login.css"
 import "./NavBar.css"
 

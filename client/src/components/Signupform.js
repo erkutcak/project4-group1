@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import NavBar from "./NavBar";
+import "./homepage.css"
+import "./Login.css"
+import "./NavBar.css"
 
 
 function SignUpForm({ onLogin }) {
@@ -35,9 +39,15 @@ function SignUpForm({ onLogin }) {
     }
 })};
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="header"> 
+        <form className="space" onSubmit={handleSubmit}>
+            <div className="top">
+          <NavBar/>
+            </div>
+        
             <label for="username">Username:</label>
             <input 
+            className="fc"
             type='text'
             id='username'
             autoComplete="off"
@@ -46,6 +56,7 @@ function SignUpForm({ onLogin }) {
             />
             <label for="email">Email:</label>
             <input
+            className="fc"
             type="text"
             id='email'
             autoComplete="off"
@@ -54,6 +65,7 @@ function SignUpForm({ onLogin }) {
             />
             <label for="password">Password:</label>
             <input 
+            className="fc"
             type='password'
             id='password'
             value={password}
@@ -61,14 +73,16 @@ function SignUpForm({ onLogin }) {
             />
             <label for="passwordConfirmation">Password Confirmation:</label>
             <input 
+            className="fc"
             type='password'
             id='passwordConfirmation'
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
             />
-            <button type='submit' >{isLoading ? 'Loading...': 'Sign Up'}</button>
+            <button className="login-button" type='submit' >{isLoading ? 'Loading...': 'Sign Up'}</button>
         </form> 
+        </div>
     )
 }
 
