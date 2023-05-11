@@ -26,7 +26,7 @@ function NavBar({user, onLogin}) {
             </NavLink>
             <h1 onClick={handleLogout}>Logout</h1>
             <NavLink
-                to="/shoppingcart"
+                to="/userId/cart"
             >
                 
                 CART

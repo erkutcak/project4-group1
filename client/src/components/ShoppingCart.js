@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function ShoppingCart({user}) {
     
@@ -22,7 +24,15 @@ function ShoppingCart({user}) {
     
     
     return (
-        <div>
+        <div className="header">
+          <div className="top">
+          <NavBar/>
+          <NavLink
+            to="/"
+            exact
+            >
+            </NavLink>
+            </div>
             <h1>Shopping Cart Page </h1>
             <div>
             </div>
