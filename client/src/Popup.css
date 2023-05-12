@@ -1,0 +1,32 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    width: 250px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #32a852;
+}
+
+.popup-inner {
+    position: relative;
+    width: 200px;
+    height: 60px;
+    padding: 20px;
+    max-width: 640px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-inner .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    background-color: antiquewhite;
+    border: none;
+}

@@ -17,6 +17,7 @@ function App() {
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
   const [cartItems, setCartItems] = useState([])
+  const [popup, setPopup] = useState(false);
 
   useEffect(() => {
     fetch('/items')
@@ -60,13 +61,15 @@ function App() {
     
     if (!cartItems.includes(item)){
     setCartItems(current => [...current, item])}
+    setPopup(true)
+    // alert("Item added to cart")
   }
 
   return(
     <div>
       <NavBar user={user} onLogin={onLogin}/>
       <Routes>
-        <Route path="/" element={<Homepage items={items} user={user} setItems={setItems} handleCartClick={handleCartClick} onLogin={onLogin}/>} />
+        <Route path="/" element={<Homepage items={items} user={user} setItems={setItems} handleCartClick={handleCartClick} onLogin={onLogin} popup={popup} setPopup={setPopup}/>} />
         <Route path="/login" element={<Login onLogin={onLogin}/>} />
         <Route path="/userId" element={<UserPage />} />
         <Route path="/userId/cart" element={<ShoppingCart user={user} items={items} cards={cartItems} setCards={setCartItems}/>} />     

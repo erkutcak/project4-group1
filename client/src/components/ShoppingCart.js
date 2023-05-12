@@ -34,6 +34,7 @@ function ShoppingCart({user, items, cards, setCards}) {
         return <Item 
             item={item}
             key={item.id}
+            returnItem={'cart'}
             handleCartClick={handleCartClick}
             />
     })
