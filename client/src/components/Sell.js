@@ -14,7 +14,6 @@ function Sell({ user, onLogin, addItem, setItems, items }) {
             .then((res) => res.json())
             .then((data) => {
             setItems(data);
-            console.log(data);
         });
     }, [refreshPage]);
     
