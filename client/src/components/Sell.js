@@ -6,7 +6,6 @@ import * as yup from "yup"
 
 function Sell({ user, onLogin, addItem, setItems, items }) {
     const [refreshPage, setRefreshPage] = useState(false);
-    // const [items, setItems] = useState([])
 
     useEffect(() => {
         console.log("FETCH! ");
@@ -24,7 +23,7 @@ function Sell({ user, onLogin, addItem, setItems, items }) {
         price: yup.number().positive(),
         description: yup.string().required("Please enter a description"),
     })
-    // console.log(user.id);
+
     const formik = useFormik({
         initialValues: {
             name:'',
@@ -36,7 +35,7 @@ function Sell({ user, onLogin, addItem, setItems, items }) {
             for_sale: 1
         },
         validationSchema: formSchema,
-        onSubmit: (values) => {
+        onSubmit: async (values, helpers) => {
         fetch("items", {
             method: "POST",
             headers: {
@@ -51,8 +50,9 @@ function Sell({ user, onLogin, addItem, setItems, items }) {
             }
         });
         setItems(items.concat(values))
-        },
-    });
+        helpers.resetForm();
+    },
+});
 
 return(
     <div>

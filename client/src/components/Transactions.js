@@ -6,13 +6,13 @@ function Transactions({user, item}) {
     const [users, setUsers] = useState([])
 
     useEffect(() => { 
-        fetch('/transactions')
-        .then(res => res.json())
-        .then(data => handleTransaction(data))
-
         fetch('/users')
         .then(res => res.json())
         .then(data => setUsers(data))
+
+        fetch('/transactions')
+        .then(res => res.json())
+        .then(data => handleTransaction(data))
     }, [user])
 
     const handleTransaction = (item) => {
@@ -20,7 +20,7 @@ function Transactions({user, item}) {
     }
 
     const displayItems = transactions.map(el => {
-        const currentItem = item.filter(item => item.id === el.buyer_id)
+        const currentItem = item.filter(item => item.id === el.item_id)
         console.log(currentItem);
         return (
             <ul>

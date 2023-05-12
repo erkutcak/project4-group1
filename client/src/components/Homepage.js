@@ -3,6 +3,7 @@ import Item from "./Item";
 import Search from "./Search";
 import SortBy from "./SortBy";
 import '../Homepage.css';
+import '../Item.css'
 
 function HomePage({items, user, onLogin, setItems, handleCartClick}) {
 

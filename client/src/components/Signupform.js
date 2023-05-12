@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Login.css"
 
 
@@ -11,6 +12,7 @@ function SignUpForm({ onLogin }) {
 //   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
     function handleSubmit(e) { 
         e.preventDefault();
@@ -34,6 +36,7 @@ function SignUpForm({ onLogin }) {
     } else {
         r.json().then((err) => setErrors(err.errors));
     }
+    navigate('/')
 })};
     return (
         <form className="form" onSubmit={handleSubmit}>

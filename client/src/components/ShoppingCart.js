@@ -19,8 +19,15 @@ function ShoppingCart({user, items, cards, setCards}) {
         }
     }
     
-    const handleCartClick = (id) => {
-        console.log(id)
+    const handleCartClick = (item) => {
+        fetch(`/items/${item.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({cart_id: null})
+        })
+        setCards(cards.filter(el => el !== item))
     }
 
     const displayItems = cards.map((item) => {

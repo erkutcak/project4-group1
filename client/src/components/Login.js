@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../Login.css"
 
 function Login({onLogin}) {
@@ -7,6 +7,7 @@ function Login({onLogin}) {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -25,6 +26,7 @@ function Login({onLogin}) {
             r.json().then((err) => setErrors(err.errors));
           }
         });
+        navigate('/')
       }
     return (
         <div>        
