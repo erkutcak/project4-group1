@@ -4,9 +4,9 @@ import { useFormik } from 'formik'
 import * as yup from "yup"
 
 
-function Sell({ user, onLogin, addItem }) {
+function Sell({ user, onLogin, addItem, setItems, items }) {
     const [refreshPage, setRefreshPage] = useState(false);
-    const [items, setItems] = useState([])
+    // const [items, setItems] = useState([])
 
     useEffect(() => {
         console.log("FETCH! ");
@@ -32,7 +32,8 @@ function Sell({ user, onLogin, addItem }) {
             price:'',
             image:'',
             description:'',
-            user_id: user.id
+            user_id: user.id,
+            for_sale: 1
         },
         validationSchema: formSchema,
         onSubmit: (values) => {
@@ -46,8 +47,10 @@ function Sell({ user, onLogin, addItem }) {
             (res) => {
             if (res.status === 200){
                 setRefreshPage(!refreshPage)
+                alert("Item added successfully!")
             }
         });
+        setItems(items.concat(values))
         },
     });
 

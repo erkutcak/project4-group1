@@ -28,9 +28,12 @@ function HomePage({items, user, onLogin, setItems, handleCartClick}) {
         return <button value={category} key={index} onClick={() => handleClick(index)} className={selected === index ? 'selected' : null}>{category}</button>
     })
     
-    const displayItems = cards.map((item) => {
+    console.log(cards) 
+
+    const displayItems = (cards.filter(el => el.for_sale !== null)).map((item) => {
         return <Item item={item} handleCartClick={handleCartClick}/>
     })
+
     
     return (
         <div className="header">

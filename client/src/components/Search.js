@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {FaSearch} from "react-icons/fa";
+// import {FaSearch} from "react-icons/fa";
 
 function Search({ items, setCards }) {
 
@@ -27,7 +27,7 @@ function Search({ items, setCards }) {
 
     return(
         <div className="search-bar">
-            <FaSearch id="search-icon"/>
+            {/* <FaSearch id="search-icon"/> */}
             <input placeholder="Search..." value={input} onChange={(e) => handleChange(e.target.value)}/>
         </div>
     )

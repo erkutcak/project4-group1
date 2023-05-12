@@ -44,7 +44,8 @@ class Items(Resource):
             price = data["price"],
             description = data["description"],
             image = data["image"],
-            user_id = data["user_id"]
+            user_id = data["user_id"],
+            for_sale = 1
             )
         try:
             db.session.add(newItem)
@@ -162,6 +163,21 @@ class TransactionsById(Resource):
             db.session.commit()
         
         return make_response(t.to_dict(), 200)
+    # def post(self, id):
+    #     data = request.get_json()
+    #     newTransaction = Transaction(
+    #         id= data["id"],
+    #         seller_id = data["seller_id"], 
+    #         buyer_id = data["buyer_id"],
+    #         item_id = data["item_id"]
+    #         )
+    #     try:
+    #         db.session.add(newTransaction)
+    #         db.session.commit()
+    #         return make_response (newTransaction.to_dict(), 200)
+    #     except Exception as e:
+    #         db.session.rollback()
+    #         return make_response({'error': f'{repr(e)}'}, 422)
     
 api.add_resource(TransactionsById, '/transactions/<int:id>')
 
@@ -171,15 +187,16 @@ class Transactions(Resource):
         if len(t_list) == 0:
             return make_response({'error': 'no Transactions'}, 404)
         return make_response(t_list, 200)
+    
     def post (self):
         data = request.get_json()
-        newTransaction = Transactions(
-            id= data["id"],
+        newTransaction = Transaction(
             seller_id = data["seller_id"], 
             buyer_id = data["buyer_id"],
             item_id = data["item_id"]
             )
         try:
+            print(newTransaction)
             db.session.add(newTransaction)
             db.session.commit()
             return make_response (newTransaction.to_dict(), 200)

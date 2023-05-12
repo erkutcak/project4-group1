@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
 
-function ShoppingCart({user, items}) {
-    const [cards, setCards] = useState([])
+function ShoppingCart({user, items, cards, setCards}) {
+    // const [cards, setCards] = useState([])
+    const [cartId, setCartId] = useState('')
     
     useEffect(() => {
-    console.log(user)
     fetch('/shoppingcarts')
     .then((response) => response.json())
     .then((data) => handleSet((data.filter(id => id.user_id === user.id))));
     }, [user])
 
     const handleSet = (carts) => { 
-        setCards(items.filter(item => item.cart_id === carts[0].id))
+        setCartId(carts[0].user_id)
+        // setCards(cards.concat(items.filter(item => item.cart_id === carts[0].id)))
+        if (cards.length === 0) { 
+            setCards(cards.concat(items.filter(item => item.cart_id === carts[0].id)))
+        }
     }
-
+    
     const handleCartClick = (id) => {
         console.log(id)
     }
@@ -26,10 +30,38 @@ function ShoppingCart({user, items}) {
             handleCartClick={handleCartClick}
             />
     })
+
+
+    const handleButtonClick = (e) => {
+        const x = e.target.value
+        cards.forEach(item => { 
+            console.log(cartId)
+            fetch('/transactions', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({item_id: item.id, seller_id: item.user_id, buyer_id: cartId }),
+                    
+            })
+
+            console.log(item.id)
+            fetch(`/items/${item.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({cart_id: null, for_sale: null}),
+        })});
+        alert("Thank you for wasting your money with us!")
+        setCards([])
+    }
+
     return (
         <div>
             <h1>Shopping Cart Page</h1>
             {displayItems}
+            <button onClick={handleButtonClick}> buy now </button>
         </div>
     )
     }

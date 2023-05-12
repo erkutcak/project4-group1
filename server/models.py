@@ -11,7 +11,7 @@ from config import db, bcrypt
 class Item(db.Model, SerializerMixin):
     __tablename__ = 'items'
 
-    serialize_rules = ('-created_at', '-updated_at', '-user', '-for_sale')
+    serialize_rules = ('-created_at', '-updated_at', '-user')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

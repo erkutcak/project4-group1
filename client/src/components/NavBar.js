@@ -30,6 +30,18 @@ function NavBar({user, onLogin}) {
             >
                 CART
             </NavLink>
+            <NavLink
+                to='/Mylisting'
+                exact
+            >
+                MyListing
+            </NavLink>
+            <NavLink
+            to='/userId/transactions'
+            exact
+            >
+                TRANSACTIONS
+            </NavLink>
             <h1 onClick={handleLogout}>Logout</h1>
         </div>
     )}
