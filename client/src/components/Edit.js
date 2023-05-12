@@ -3,7 +3,11 @@ import { useFormik } from 'formik'
 import * as yup from "yup"
 
 function Edit({item, reset}){
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 192bfd5220d6cf5f4e8d14f50280b31fa6256069
     const formik = useFormik({
         initialValues: {
         name: item.name,
@@ -19,8 +23,13 @@ function Edit({item, reset}){
             description: yup.string().required("Please enter a description"),
         }),
         onSubmit: (values) => {
+<<<<<<< HEAD
            handlePatch(values)
            reset()
+=======
+            handlePatch(values)
+            reset()
+>>>>>>> 192bfd5220d6cf5f4e8d14f50280b31fa6256069
         }
     })
 
@@ -36,11 +45,17 @@ function Edit({item, reset}){
         alert('Your item has been successfully changed!')
         reset();
     }
+<<<<<<< HEAD
   
     // console.log(formik.values)
     
 
     return (
+=======
+
+    // console.log(formik.values)
+return (
+>>>>>>> 192bfd5220d6cf5f4e8d14f50280b31fa6256069
         <div>
             <h1>edit div</h1>
             <form onSubmit={formik.handleSubmit} >

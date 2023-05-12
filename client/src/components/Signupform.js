@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../Login.css"
 
 
 function SignUpForm({ onLogin }) {
@@ -10,6 +12,7 @@ function SignUpForm({ onLogin }) {
 //   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
     function handleSubmit(e) { 
         e.preventDefault();
@@ -33,11 +36,14 @@ function SignUpForm({ onLogin }) {
     } else {
         r.json().then((err) => setErrors(err.errors));
     }
+    navigate('/')
 })};
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
+            <p className="heading">Sign Up</p>
             <label for="username">Username:</label>
             <input 
+            className="input"
             type='text'
             id='username'
             autoComplete="off"
@@ -46,6 +52,7 @@ function SignUpForm({ onLogin }) {
             />
             <label for="email">Email:</label>
             <input
+            className="input"
             type="text"
             id='email'
             autoComplete="off"
@@ -54,6 +61,7 @@ function SignUpForm({ onLogin }) {
             />
             <label for="password">Password:</label>
             <input 
+            className="input"
             type='password'
             id='password'
             value={password}
@@ -61,13 +69,14 @@ function SignUpForm({ onLogin }) {
             />
             <label for="passwordConfirmation">Password Confirmation:</label>
             <input 
+            className="input"
             type='password'
             id='passwordConfirmation'
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             autoComplete="current-password"
             />
-            <button type='submit' >{isLoading ? 'Loading...': 'Sign Up'}</button>
+            <button className="btn" type='submit' >{isLoading ? 'Loading...': 'Submit'}</button>
         </form> 
     )
 }

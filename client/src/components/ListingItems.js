@@ -1,4 +1,3 @@
-import homepage from './homepage.css'
 
 function ListingItems({ item, handleDelete, handleEdit}) {
     return(

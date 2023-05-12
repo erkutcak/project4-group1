@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import NavBar from "./components/NavBar";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
@@ -16,6 +17,7 @@ function App() {
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
   const [cartItems, setCartItems] = useState([])
+  const [popup, setPopup] = useState(false);
 
   useEffect(() => {
     fetch('/items')
@@ -52,24 +54,22 @@ function App() {
       },
       body: JSON.stringify({cart_id : new_cart_id[0].id})
   })}
-  // const resets = () => {
-  //     setUser(user)
-  // }
 
   function handleCartClick(item) {
     console.log(item)
     handlepatch(cart.filter(id => id.user_id === user.id), item)
-    // setReset([])
     
     if (!cartItems.includes(item)){
     setCartItems(current => [...current, item])}
+    setPopup(true)
+    // alert("Item added to cart")
   }
-  
+
   return(
     <div>
       <NavBar user={user} onLogin={onLogin}/>
       <Routes>
-        <Route path="/" element={<Homepage items={items} user={user} setItems={setItems} handleCartClick={handleCartClick} onLogin={onLogin}/>} />
+        <Route path="/" element={<Homepage items={items} user={user} setItems={setItems} handleCartClick={handleCartClick} onLogin={onLogin} popup={popup} setPopup={setPopup}/>} />
         <Route path="/login" element={<Login onLogin={onLogin}/>} />
         <Route path="/userId" element={<UserPage />} />
         <Route path="/userId/cart" element={<ShoppingCart user={user} items={items} cards={cartItems} setCards={setCartItems}/>} />     

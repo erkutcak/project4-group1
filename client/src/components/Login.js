@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import "../Login.css"
 
 function Login({onLogin}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,35 +26,32 @@ function Login({onLogin}) {
             r.json().then((err) => setErrors(err.errors));
           }
         });
+        navigate('/')
       }
     return (
-        <div>
-          <NavLink
-            to="/"
-            exact
-            >
-                HOME
-            </NavLink>
-        
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-            type='text'
-            id='username'
-            autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-            type='password'
-            id='password'
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-        </form>
+        <div>        
+          <form className="form" onSubmit={handleSubmit}>
+              <p className="heading">Login</p>
+              <label htmlFor="username">Username:</label>
+              <input
+              className="input"
+              type='text'
+              id='username'
+              autoComplete="off"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              />
+              <label htmlFor="password">Password:</label>
+              <input
+              className="input"
+              type='password'
+              id='password'
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              />
+              <button className="btn" type="submit">{isLoading ? "Loading..." : "Submit"}</button>
+          </form>
         </div>
     )
     }

@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import "./NavBar.css"
+import "../NavBar.css"
 
 function NavBar({user, onLogin}) {
 
     function handleLogout() {
         fetch("/logout", {
-          method: "DELETE",
+            method: "DELETE",
         }).then(() => onLogin());
         console.log("logged out");
-      }
+    }
 
     if (user) { 
     return (
@@ -17,32 +17,32 @@ function NavBar({user, onLogin}) {
             to="/"
             exact
             >
-                HOME
+                <button className="logout-button">Home</button>
             </NavLink>
             <NavLink
             to='/sell'
             >
-                SELL
+                <button className="logout-button">Sell</button>
             </NavLink>
             <NavLink
                 to="/userId/cart"
                 exact
             >
-                CART
+                <button className="logout-button">Cart</button>
             </NavLink>
             <NavLink
                 to='/Mylisting'
                 exact
             >
-                MyListing
+                <button className="logout-button">My Listings</button>
             </NavLink>
             <NavLink
             to='/userId/transactions'
             exact
             >
-                TRANSACTIONS
+                <button className="logout-button">Purchase History</button>
             </NavLink>
-            <h1 onClick={handleLogout}>Logout</h1>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
         </div>
     )}
     return (
@@ -51,21 +51,21 @@ function NavBar({user, onLogin}) {
                 to="/"
                 exact
             >
-                HOME
+                <button className="logout-button">Home</button>
+            </NavLink>
+            <NavLink
+                to="/signup"
+            >
+                <button className="logout-button">Sign Up</button>
             </NavLink>
             <NavLink
                 to="/login"
                 exact
             >
-                LOGIN
-            </NavLink>
-            <NavLink
-                to="/signup"
-            >
-                SIGN UP
+                <button className="logout-button">Login</button>
             </NavLink>
         </div>
-  );
+    );
 }
 
 export default NavBar
