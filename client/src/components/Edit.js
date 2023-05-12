@@ -20,6 +20,7 @@ function Edit({item, reset}){
         }),
         onSubmit: (values) => {
            handlePatch(values)
+           reset()
         }
     })
 

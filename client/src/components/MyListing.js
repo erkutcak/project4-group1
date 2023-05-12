@@ -20,8 +20,7 @@ function MyListing({user, items, setItems}) {
         })  
     }
     const reset = () => {
-        console.log(items)
-        setItems(items)}
+        console.log(items)}
     const handleEdit = (item) => {
         setEdit(<Edit item={item} reset={reset}/>);
         
