@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar"
-import homepage from './homepage.css'
 import Item from "./Item";
 import Search from "./Search";
 import SortBy from "./SortBy";
+import '../Homepage.css';
 
 function HomePage({items, user, onLogin, setItems, handleCartClick}) {
 
@@ -25,10 +24,8 @@ function HomePage({items, user, onLogin, setItems, handleCartClick}) {
         }}
         
     const filterButton = categories.map((category, index) => {
-        return <button value={category} key={index} onClick={() => handleClick(index)} className={selected === index ? 'selected' : null}>{category}</button>
+        return <button value={category} key={index} onClick={() => handleClick(index)} className="category-buttons">{category}</button>
     })
-    
-    console.log(cards) 
 
     const displayItems = (cards.filter(el => el.for_sale !== null)).map((item) => {
         return <Item item={item} handleCartClick={handleCartClick}/>

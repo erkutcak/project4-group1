@@ -1,4 +1,3 @@
-import homepage from './homepage.css'
 
 function Item({ item, handleCartClick }) {
     return(

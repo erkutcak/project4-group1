@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import "../Login.css"
 
 function Login({onLogin}) {
     const [username, setUsername] = useState("");
@@ -26,33 +27,29 @@ function Login({onLogin}) {
         });
       }
     return (
-        <div>
-          <NavLink
-            to="/"
-            exact
-            >
-                HOME
-            </NavLink>
-        
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-            type='text'
-            id='username'
-            autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-            type='password'
-            id='password'
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-        </form>
+        <div>        
+          <form className="form" onSubmit={handleSubmit}>
+              <p className="heading">Login</p>
+              <label htmlFor="username">Username:</label>
+              <input
+              className="input"
+              type='text'
+              id='username'
+              autoComplete="off"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              />
+              <label htmlFor="password">Password:</label>
+              <input
+              className="input"
+              type='password'
+              id='password'
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              />
+              <button className="btn" type="submit">{isLoading ? "Loading..." : "Submit"}</button>
+          </form>
         </div>
     )
     }

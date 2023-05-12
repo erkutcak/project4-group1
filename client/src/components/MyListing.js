@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import ListingItems from './ListingItems'
+import Edit from "./Edit";
 
 
 function MyListing({user, items, setItems}) { 
     const myListings = items.filter(el => el.user_id === user?.id)
+    const [edit, setEdit] = useState([])
 
     const handleDelete = (item) => {
-        // console.log(item)
         const filteredItems = items.filter(el => el !== item)
         setItems(filteredItems)
 
@@ -19,10 +20,14 @@ function MyListing({user, items, setItems}) {
     }
     
     const handleEdit = (item) => {
-        
+        setEdit(<Edit item={item}/>)
     }
     const displayItems = (myListings.map(el => {
-        return <ListingItems item={el} handleDelete={ handleDelete} handleEdit={handleEdit}/> 
+        return (
+            <div>
+            <ListingItems item={el} handleDelete={ handleDelete} handleEdit={handleEdit}/> 
+            {edit}
+            </div>)
     }))
     return (
         <div>
