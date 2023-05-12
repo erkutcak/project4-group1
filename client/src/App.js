@@ -76,7 +76,7 @@ function App() {
         <Route path="/userId/transactions" element={<Transactions  user={user} item={items}/>} />
         <Route path="/signup" element={<SignUpForm onLogin={onLogin} />} />
         <Route path='/sell' element={<Sell user={user} items={items} addItem={addItem} setItems={setItems}/>} />
-        <Route path='/MyListing' element={<MyListing />} />
+        <Route path='/MyListing' element={<MyListing user={user} items={items} setItems={setItems}/>} />
       </Routes>
     </div>
   )

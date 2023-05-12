@@ -125,6 +125,22 @@ class ItemsById(Resource):
             return make_response( response_body, 404 )
         
         return make_response(i.to_dict(), 200)
+    
+    def delete(self, id):
+        t = Item.query.filter_by(id=id).first()
+        db.session.delete(t)
+        db.session.commit()
+        response_body = {
+            "deleted successfully": True,
+            "message": "Transaction deleted successfully"
+        }
+        response = make_response(
+            response_body,
+            202
+        )
+        return response
+       
+        
 
 api.add_resource(ItemsById, '/items/<int:id>')
 
