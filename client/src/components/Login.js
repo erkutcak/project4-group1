@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../Login.css"
+import { motion, useTime, useTransform } from "framer-motion";
+import logo from "../images/logo.png";
 
 function Login({onLogin}) {
     const [username, setUsername] = useState("");
@@ -8,6 +10,8 @@ function Login({onLogin}) {
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const time = useTime();
+    const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -29,8 +33,11 @@ function Login({onLogin}) {
         navigate('/')
       }
     return (
-        <div>        
+        <div> 
           <form className="form" onSubmit={handleSubmit}>
+            <motion.div className="logo-container" style={{ rotate }}>
+              <img className="logo" src={logo}/>
+            </motion.div>
               <p className="heading">Login</p>
               <label htmlFor="username">Username:</label>
               <input

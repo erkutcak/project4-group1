@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Login.css"
+import { motion, useTime, useTransform } from "framer-motion";
+import logo from "../images/logo.png";
 
 
 function SignUpForm({ onLogin }) {
@@ -8,8 +10,8 @@ function SignUpForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-//   const [imageUrl, setImageUrl] = useState("");
-//   const [bio, setBio] = useState("");
+  const time = useTime();
+  const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -40,6 +42,9 @@ function SignUpForm({ onLogin }) {
 })};
     return (
         <form className="form" onSubmit={handleSubmit}>
+            <motion.div className="logo-container" style={{ rotate }}>
+                <img className="logo" src={logo}/>
+            </motion.div>
             <p className="heading">Sign Up</p>
             <label for="username">Username:</label>
             <input 

@@ -11,7 +11,7 @@ function HomePage({setPopup, popup, items, user, onLogin, setItems, handleCartCl
 
     const [selected, setSelected] = useState(0);
     const [cards, setCards] = useState(items);
-
+    
 
     const categories = ['All', 'Beauty & Health', 'Food & Beverage', 'Furniture & Decor', 'Household Items', 'Pet Supplies', 'Office Equipment', 'Clothing', 'Electronics', 'Books', 'Toys', 'Sports & Outdoors', 'Auto Parts']
 

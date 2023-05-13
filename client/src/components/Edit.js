@@ -3,11 +3,7 @@ import { useFormik } from 'formik'
 import * as yup from "yup"
 
 function Edit({item, reset}){
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 192bfd5220d6cf5f4e8d14f50280b31fa6256069
     const formik = useFormik({
         initialValues: {
         name: item.name,
@@ -23,39 +19,45 @@ function Edit({item, reset}){
             description: yup.string().required("Please enter a description"),
         }),
         onSubmit: (values) => {
-<<<<<<< HEAD
-           handlePatch(values)
-           reset()
-=======
             handlePatch(values)
             reset()
->>>>>>> 192bfd5220d6cf5f4e8d14f50280b31fa6256069
         }
     })
 
-    const handlePatch = (values) => {
+    const handlePatch = async (values) => {
         // console.log(item.id)
-        fetch(`/items/${item.id}`, {
+        const resp = await fetch(`/items/${item.id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": 'application/json',
             },
             body: JSON.stringify({name: values.name, category: values.category, price: values.price, image: values.image, description: values.description  })
         });
+        const data = await resp.json();
         alert('Your item has been successfully changed!')
-        reset();
+        const updatedItems = items.map(i => {
+            if (i.id === data.id) {
+                return data
+            } else {
+                return i
+            }
+        })
+        setItems(updatedItems)
+        console.log(updatedItems);
+        console.log(items);
+        
     }
-<<<<<<< HEAD
+
   
     // console.log(formik.values)
     
 
     return (
-=======
+
 
     // console.log(formik.values)
 return (
->>>>>>> 192bfd5220d6cf5f4e8d14f50280b31fa6256069
+
         <div>
             <h1>edit div</h1>
             <form onSubmit={formik.handleSubmit} >

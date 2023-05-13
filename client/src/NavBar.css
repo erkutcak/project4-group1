@@ -48,14 +48,28 @@
   }
   
   .logout-button:hover {
-    background-color: #fff;
+    background-color: #fcf414;
     color: #ff5252;
     border: 2px solid #ff5252;
     box-shadow: 5px 5px 0px #ff5252;
   }
   
   .logout-button:active {
-    background-color: #fcf414;
+    background-color: antiquewhite;
     box-shadow: none;
     transform: translateY(4px);
+  }
+
+  .home-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+  }
+
+  .home-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 30px;
   }

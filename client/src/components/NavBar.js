@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "../NavBar.css"
+import { motion, useTime, useTransform } from "framer-motion";
+import logo from "../images/logo.png";
 
 function NavBar({user, onLogin}) {
+
+    const time = useTime();
+    const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
 
     function handleLogout() {
         fetch("/logout", {
@@ -30,6 +35,9 @@ function NavBar({user, onLogin}) {
             >
                 <button className="logout-button">Cart</button>
             </NavLink>
+            <motion.div className="home-logo-container" style={{ rotate }}>
+                <img className="home-logo" src={logo}/>
+            </motion.div>
             <NavLink
                 to='/Mylisting'
                 exact

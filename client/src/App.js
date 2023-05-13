@@ -11,13 +11,13 @@ import SignUpForm from "./components/Signupform";
 import Sell from "./components/Sell";
 import MyListing from "./components/MyListing";
 
-
 function App() {
   const [user, setUser] = useState(null)
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
   const [cartItems, setCartItems] = useState([])
   const [popup, setPopup] = useState(false);
+
 
   useEffect(() => {
     fetch('/items')

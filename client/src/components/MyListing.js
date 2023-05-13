@@ -3,7 +3,6 @@ import ListingItems from './ListingItems'
 
 
 function MyListing({user, items, setItems}) { 
-    const [edit, setEdit] = useState([])
     const myListings = items.filter(el => el.user_id === user?.id)
     const [edit, setEdit] = useState([])
 
@@ -21,7 +20,7 @@ function MyListing({user, items, setItems}) {
     const reset = () => {
         console.log(items)}
     const handleEdit = (item) => {
-        
+        setEdit(<Edit item={item}/>)
     }
     const displayItems = (myListings.map(el => {
         return <ListingItems item={el} handleDelete={ handleDelete} handleEdit={handleEdit}/> 
