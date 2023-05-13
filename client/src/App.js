@@ -17,6 +17,9 @@ function App() {
   const [cart, setCart] = useState([])
   const [cartItems, setCartItems] = useState([])
   const [popup, setPopup] = useState(false);
+  const [popup2, setPopup2] = useState(false);
+  const [popup3, setPopup3] = useState(false);
+  const [popup4, setPopup4] = useState(false);
 
 
   useEffect(() => {
@@ -62,7 +65,6 @@ function App() {
     if (!cartItems.includes(item)){
     setCartItems(current => [...current, item])}
     setPopup(true)
-    // alert("Item added to cart")
   }
 
   return(
@@ -72,11 +74,11 @@ function App() {
         <Route path="/" element={<Homepage items={items} user={user} setItems={setItems} handleCartClick={handleCartClick} onLogin={onLogin} popup={popup} setPopup={setPopup}/>} />
         <Route path="/login" element={<Login onLogin={onLogin}/>} />
         <Route path="/userId" element={<UserPage />} />
-        <Route path="/userId/cart" element={<ShoppingCart user={user} items={items} cards={cartItems} setCards={setCartItems}/>} />     
+        <Route path="/userId/cart" element={<ShoppingCart user={user} items={items} cards={cartItems} setCards={setCartItems} popup4={popup4} setPopup4={setPopup4}/>} />     
         <Route path="/userId/transactions" element={<Transactions  user={user} item={items}/>} />
         <Route path="/signup" element={<SignUpForm onLogin={onLogin} />} />
-        <Route path='/sell' element={<Sell user={user} items={items} addItem={addItem} setItems={setItems}/>} />
-        <Route path='/MyListing' element={<MyListing user={user} items={items} setItems={setItems}/>} />
+        <Route path='/sell' element={<Sell user={user} items={items} addItem={addItem} setItems={setItems} popup2={popup2} setPopup2={setPopup2}/>} />
+        <Route path='/MyListing' element={<MyListing user={user} items={items} setItems={setItems} popup3={popup3} setPopup3={setPopup3}/>} />
       </Routes>
     </div>
   )
