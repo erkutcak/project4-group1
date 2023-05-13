@@ -1,23 +1,24 @@
 .listing-form {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #343940;
     padding: 20px;
     border-radius: 25px;
     transition: .4s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
     width: 250px;
     font-family: 'Quicksand';
+    color: antiquewhite;
   }
   
   .listing-form:hover {
     /* transform: translateX(-0.5em) translateY(-0.5em); */
     border: 1px solid #171717;
-    box-shadow: 10px 10px 0px #666666;
+    box-shadow: 10px 10px 0px #ff5252;
   }
   
   .heading {
-    color: black;
+    color: antiquewhite;
     padding-bottom: 2px;
     text-align: center;
     font-weight: bold;
