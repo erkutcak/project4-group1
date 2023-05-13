@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useFormik } from 'formik'
 import * as yup from "yup"
 
-function Edit({item, reset}){
+function Edit({item, setItem, reset, items, setItems}) {
 
     const formik = useFormik({
         initialValues: {
@@ -18,23 +18,34 @@ function Edit({item, reset}){
             price: yup.number().positive(),
             description: yup.string().required("Please enter a description"),
         }),
-        onSubmit: (values) => {
+        onSubmit: async (values, helpers) => {
             handlePatch(values)
-            reset()
+            helpers.resetForm()
         }
     })
 
-    const handlePatch = (values) => {
+    const handlePatch = async (values) => {
         // console.log(item.id)
-        fetch(`/items/${item.id}`, {
+        const resp = await fetch(`/items/${item.id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": 'application/json',
             },
             body: JSON.stringify({name: values.name, category: values.category, price: values.price, image: values.image, description: values.description  })
         });
+        const data = await resp.json();
         alert('Your item has been successfully changed!')
-        reset();
+        const updatedItems = items.map(i => {
+            if (i.id === data.id) {
+                return data
+            } else {
+                return i
+            }
+        })
+        setItems(updatedItems)
+        console.log(updatedItems);
+        console.log(items);
+        
     }
 
     // console.log(formik.values)

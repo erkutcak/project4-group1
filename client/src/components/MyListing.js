@@ -20,7 +20,7 @@ function MyListing({user, items, setItems}) {
     }
     
     const handleEdit = (item) => {
-        setEdit(<Edit item={item}/>)
+        setEdit(<Edit items={items} setItems={setItems} item={item}/>)
     }
     const displayItems = (myListings.map(el => {
         return (

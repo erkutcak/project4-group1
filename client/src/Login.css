@@ -20,11 +20,12 @@
   
   .heading {
     color: black;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
     text-align: center;
     font-weight: bold;
     font-family: 'Quicksand';
     font-size: 30px;
+    margin-top: 5px;
   }
   
   .input {
@@ -70,4 +71,19 @@
     transition: .2s;
     transform: translateX(0em) translateY(0em);
     box-shadow: none;
+  }
+
+  .logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 30px;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    width: 150px;
+    height: 150px;
   }

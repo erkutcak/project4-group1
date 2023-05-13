@@ -11,7 +11,7 @@
 .category-container {
     display: flex;
     flex-direction: column;
-    background-color: #343940;
+    background: linear-gradient(180deg, #343940, #757582);
     border-radius: 20px;
     padding: 20px;
     margin-top: 0;
@@ -83,6 +83,5 @@
     flex-wrap: wrap;
     width: 100%;
 }
-
 
 

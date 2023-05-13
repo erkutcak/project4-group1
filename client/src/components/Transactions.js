@@ -24,7 +24,7 @@ function Transactions({user, item}) {
         console.log(currentItem);
         return (
             <ul>
-                <h3>seller: {users.filter(x => x.id == el.seller_id)[0].username}, item id:{el.item_id}</h3> 
+                <h3>seller: {users?.filter(x => x.id === el.seller_id)[0].username}, item id:{el.item_id}</h3> 
                 <h2>item: {currentItem[0].name}, price:{currentItem[0].price} {currentItem[0].image}</h2>
             </ul>)
     })
