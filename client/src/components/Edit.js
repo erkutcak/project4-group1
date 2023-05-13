@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useFormik } from 'formik'
 import * as yup from "yup"
 
-function Edit({item, reset}){
+function Edit({item, setItem, reset, items, setItems}) {
 
     const formik = useFormik({
         initialValues: {
@@ -18,9 +18,9 @@ function Edit({item, reset}){
             price: yup.number().positive(),
             description: yup.string().required("Please enter a description"),
         }),
-        onSubmit: (values) => {
+        onSubmit: async (values, helpers) => {
             handlePatch(values)
-            reset()
+            helpers.resetForm()
         }
     })
 
@@ -48,16 +48,8 @@ function Edit({item, reset}){
         
     }
 
-  
-    // console.log(formik.values)
-    
-
-    return (
-
-
     // console.log(formik.values)
 return (
-
         <div>
             <h1>edit div</h1>
             <form onSubmit={formik.handleSubmit} >
