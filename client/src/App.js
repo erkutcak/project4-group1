@@ -17,6 +17,7 @@ function App() {
   const [cart, setCart] = useState([])
   const [cartItems, setCartItems] = useState([])
   const [popup, setPopup] = useState(false);
+  const [popup2, setPopup2] = useState(false);
 
 
   useEffect(() => {
@@ -75,7 +76,7 @@ function App() {
         <Route path="/userId/cart" element={<ShoppingCart user={user} items={items} cards={cartItems} setCards={setCartItems}/>} />     
         <Route path="/userId/transactions" element={<Transactions  user={user} item={items}/>} />
         <Route path="/signup" element={<SignUpForm onLogin={onLogin} />} />
-        <Route path='/sell' element={<Sell user={user} items={items} addItem={addItem} setItems={setItems}/>} />
+        <Route path='/sell' element={<Sell user={user} items={items} addItem={addItem} setItems={setItems} popup2={popup2} setPopup2={setPopup2}/>} />
         <Route path='/MyListing' element={<MyListing user={user} items={items} setItems={setItems}/>} />
       </Routes>
     </div>

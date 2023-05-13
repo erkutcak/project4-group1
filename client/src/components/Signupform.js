@@ -6,15 +6,15 @@ import logo from "../images/logo.png";
 
 
 function SignUpForm({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const time = useTime();
-  const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const time = useTime();
+    const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
+    const [errors, setErrors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     function handleSubmit(e) { 
         e.preventDefault();

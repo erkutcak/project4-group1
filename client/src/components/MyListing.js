@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import ListingItems from './ListingItems'
 import Edit from "./Edit";
+import "../MyListing.css";
+import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 
 
 function MyListing({user, items, setItems}) { 
     const myListings = items.filter(el => el.user_id === user?.id)
     const [edit, setEdit] = useState([])
+    const ref = useRef(null);
+    const { scrollXProgress } = useScroll({ container: ref });
 
     const handleDelete = (item) => {
         const filteredItems = items.filter(el => el !== item)
@@ -30,9 +35,25 @@ function MyListing({user, items, setItems}) {
             </div>)
     }))
     return (
-        <div>
-            <h1>My Listing</h1>
-            {displayItems}
+        <div className="listing-container">
+            <h1>My Listings</h1>
+            <hr className="vl" />
+            <>
+        <svg id="progress" width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
+        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollXProgress }}
+        />
+        </svg>
+        <ul ref={ref}>
+                {displayItems}
+        </ul>
+        </>
         </div>
     )
 }

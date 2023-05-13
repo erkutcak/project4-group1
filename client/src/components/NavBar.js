@@ -30,19 +30,19 @@ function NavBar({user, onLogin}) {
                 <button className="logout-button">Sell</button>
             </NavLink>
             <NavLink
-                to="/userId/cart"
+                to='/Mylisting'
                 exact
             >
-                <button className="logout-button">Cart</button>
+                <button className="logout-button">My Listings</button>
             </NavLink>
             <motion.div className="home-logo-container" style={{ rotate }}>
                 <img className="home-logo" src={logo}/>
             </motion.div>
             <NavLink
-                to='/Mylisting'
+                to="/userId/cart"
                 exact
             >
-                <button className="logout-button">My Listings</button>
+                <button className="logout-button">Cart</button>
             </NavLink>
             <NavLink
             to='/userId/transactions'

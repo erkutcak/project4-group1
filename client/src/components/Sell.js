@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar"
 import { useFormik } from 'formik'
 import * as yup from "yup"
+import '../Sell.css'
+import Popup2 from "./Popup2";
+import '../Popup2.css'
 
-
-function Sell({ user, onLogin, addItem, setItems, items }) {
+function Sell({ user, onLogin, addItem, setItems, items, popup2, setPopup2 }) {
     const [refreshPage, setRefreshPage] = useState(false);
 
     useEffect(() => {
@@ -46,20 +48,22 @@ function Sell({ user, onLogin, addItem, setItems, items }) {
             (res) => {
             if (res.status === 200){
                 setRefreshPage(!refreshPage)
-                alert("Item added successfully!")
             }
         });
         setItems(items.concat(values))
         helpers.resetForm();
+        setPopup2(true)
     },
 });
 
 return(
-    <div>
-        <form onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>
-        <label htmlFor="name">Name</label>
+    <div className="sell-container">
+        <form className="listing-form" onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>
+        <p className="heading">Create a Listing</p>
+        <label className="form-label" htmlFor="name">Name</label>
         <br />
         <input
+        className="input"
         id="name"
         type="text"
         name="name"
@@ -70,6 +74,7 @@ return(
         <label htmlFor="category">Category</label>
         <br />
         <select id="category" name="category" onChange={formik.handleChange} value={formik.values.category}>
+            <option disabled>Select a Category</option>
             <option>Beauty & Health</option>
             <option>Clothing</option>
             <option>Electronics</option>
@@ -84,9 +89,10 @@ return(
             <option>Auto Parts</option>
         </select>
         <p style={{ color: "red" }}> {formik.errors.category}</p>
-        <label htmlFor="price">Price</label>
+        <label className="form-label" htmlFor="price">Price</label>
         <br />
         <input
+        className="input"
         id="price"
         type='number'
         name="price"
@@ -94,9 +100,10 @@ return(
         value={formik.values.price}
         />
         <p style={{ color: "red" }}> {formik.errors.price}</p>
-        <label htmlFor="image">Image</label>
+        <label className="form-label" htmlFor="image">Image</label>
         <br />
         <input
+        className="input"
         id="image"
         type="text"
         name="image"
@@ -104,9 +111,10 @@ return(
         value={formik.values.image}
         />
         <p style={{ color: "red" }}> {formik.errors.image}</p>
-        <label htmlFor="description">Description</label>
+        <label className="form-label" htmlFor="description">Description</label>
         <br />
         <input
+        className="input"
         id="description"
         type="text"
         name="description"
@@ -115,7 +123,10 @@ return(
         />
         <p style={{ color: "red" }}> {formik.errors.description}</p>
 
-        <button type="submit">Submit</button>
+        <button className="btn" type="submit">Submit</button>
+        <Popup2 trigger={popup2} setTrigger={setPopup2}>
+                    <h3>Your listing has been created!</h3>
+        </Popup2> 
         </form> 
     </div>
 )
