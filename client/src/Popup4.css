@@ -1,0 +1,27 @@
+.popup4 {
+    position: fixed;
+    top: 20%;
+    left: 48%;
+    width: 250px;
+    height: 80px;
+    font-family: 'Quicksand', sans-serif;
+    color: antiquewhite;
+}
+
+.popup-inner4 {
+    width: auto;
+    height: 60px;
+    padding: 20px;
+    background-color: #32a852;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-inner4 .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    background-color: #32a852;
+    border: none;
+}

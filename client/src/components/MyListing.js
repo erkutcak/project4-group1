@@ -4,9 +4,11 @@ import Edit from "./Edit";
 import "../MyListing.css";
 import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
+import '../Popup3.css'
+import Popup3 from './Popup3'
 
 
-function MyListing({user, items, setItems}) { 
+function MyListing({user, items, setItems, popup3, setPopup3}) { 
     const myListings = items.filter(el => el.user_id === user?.id)
     const [edit, setEdit] = useState([])
     const ref = useRef(null);
@@ -25,7 +27,7 @@ function MyListing({user, items, setItems}) {
     }
     
     const handleEdit = (item) => {
-        setEdit(<Edit items={items} setItems={setItems} item={item}/>)
+        setEdit(<Edit items={items} setItems={setItems} item={item} popup3={popup3} setPopup3={setPopup3}/>)
     }
     const displayItems = (myListings.map(el => {
         return (
@@ -52,6 +54,9 @@ function MyListing({user, items, setItems}) {
         </svg>
         <ul ref={ref}>
                 {displayItems}
+                <Popup3 trigger={popup3} setTrigger={setPopup3}>
+                    <h3>Your listing has been updated!</h3>
+                </Popup3> 
         </ul>
         </>
         </div>

@@ -227,3 +227,71 @@ li p{
     margin: 40px 20px 20px 0px;
     height: 380px;
   }
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    transition: .4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+    width: 140px;
+    font-family: 'Quicksand';
+    margin-top: 10px;
+  }
+
+  .form-label {
+    font-size: 10px;
+  }
+
+  
+  .form-title {
+    color: black;
+    padding-bottom: 2px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Quicksand';
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .errors {
+    margin-top: 0px;
+  }
+  
+  .input {
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    background-color: whitesmoke;
+    outline: none;
+    padding: 5px;
+    transition: .4s ease-in-out;
+    font-family: 'Quicksand';
+  }
+  
+  
+  .edit-form .btn {
+    margin-top: 5px;
+    align-self: center;
+    padding: 0.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    transition: .4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+  }
+  
+  .edit-form .btn:hover {
+    box-shadow: 6px 6px 0px #969696,
+               -3px -3px 10px #ffffff;
+    transform: translateX(-0.5em) translateY(-0.5em);
+  }
+  
+  .edit-form .btn:active {
+    transition: .2s;
+    transform: translateX(0em) translateY(0em);
+    box-shadow: none;
+  }

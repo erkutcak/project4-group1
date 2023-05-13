@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
+import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+import '../Cart.css'
+import '../Popup4.css'
+import Popup4 from './Popup4'
 
-function ShoppingCart({user, items, cards, setCards}) {
+function ShoppingCart({user, items, cards, setCards, popup4, setPopup4}) {
     // const [cards, setCards] = useState([])
     const [cartId, setCartId] = useState('')
+    const ref = useRef(null);
+    const { scrollXProgress } = useScroll({ container: ref });
     
     useEffect(() => {
     fetch('/shoppingcarts')
@@ -31,12 +38,7 @@ function ShoppingCart({user, items, cards, setCards}) {
     }
 
     const displayItems = cards.map((item) => {
-        return <Item 
-            item={item}
-            key={item.id}
-            returnItem={'cart'}
-            handleCartClick={handleCartClick}
-            />
+        return <Item item={item} key={item.id} returnItem={'cart'} handleCartClick={handleCartClick}/>
     })
 
 
@@ -61,15 +63,36 @@ function ShoppingCart({user, items, cards, setCards}) {
                 },
                 body: JSON.stringify({cart_id: null, for_sale: null}),
         })});
-        alert("Thank you for wasting your money with us!")
         setCards([])
+        setPopup4(true)
     }
 
     return (
-        <div>
-            <h1>Shopping Cart Page</h1>
+        <div className="shopping-cart">
+            <div className="cart-left">
+                <h1 className="cart-title">Your Cart</h1>
+                <button className='buy-now' onClick={handleButtonClick}><span class="button_top">Buy Now!</span></button>
+            </div>
+            <hr className="vl" />
+            <>
+        <svg id="progress" width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
+        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollXProgress }}
+        />
+        </svg>
+        <ul ref={ref}>
             {displayItems}
-            <button onClick={handleButtonClick}> buy now </button>
+            <Popup4 trigger={popup4} setTrigger={setPopup4}>
+                    <h3>Thank you for wasting your money with us!</h3>
+            </Popup4> 
+        </ul>
+        </>
         </div>
     )
     }

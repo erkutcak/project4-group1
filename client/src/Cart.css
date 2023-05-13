@@ -1,0 +1,221 @@
+.shopping-cart{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    background-color: #343940;
+    border-radius: 20px;
+}
+
+.cart-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-title {
+    text-align: center;
+}
+
+.buy-now {
+    margin-top: 30px;
+}
+
+.shopping-cart h1{
+    font-family: 'Quicksand', sans-serif;
+    color: antiquewhite;
+    margin: 100px 10px;
+    font-size: 50px;
+}
+  
+  #progress {
+    position: absolute;
+    top: 390px;
+    left: 55px;
+    transform: rotate(-90deg);
+  }
+  
+  circle {
+    stroke-dashoffset: 0;
+    stroke-width: 15%;
+    fill: none;
+  }
+  
+  .bg {
+    stroke: antiquewhite;
+    opacity: 0.3;
+  }
+  
+  #progress .indicator {
+    stroke: #ff5252;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+    height: 400px;
+    overflow-y: scroll;
+    padding: 20px 0;
+    flex: 0 0 1150px;
+    gap: 10px;
+  }
+  
+  ::-webkit-scrollbar {
+    height: 15px;
+    width: 5px;
+    background: #fff3;
+    -webkit-border-radius: 1ex;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: antiquewhite;
+    -webkit-border-radius: 1ex;
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background: #fff3;
+  }
+  
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ff5252;
+    margin: 10px;
+    width: 160px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+  }
+  
+  li:last-of-type {
+    margin: 0;
+  }
+  
+  li img{
+    width: 150px;
+    height: 150px;
+    font-size: 8px;
+    border-radius: 10px;
+}
+
+li h2{
+    font-size: 20px;
+    margin-top: 10px;
+    height: 40px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+li h3{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 900;
+}
+
+li p{
+    font-size: 12px;
+    margin-top: 10px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+#remove {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: #343940;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #343940;
+    position: relative;
+   }
+   
+   #remove, #remove span {
+    transition: 200ms;
+   }
+   
+   #remove .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   #remove .icon {
+    position: absolute;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   #remove svg {
+    width: 15px;
+    fill: red;
+   }
+   
+   #remove:hover {
+    background: #f7b231;
+   }
+   
+   #remove:hover .text {
+    color: transparent;
+   }
+   
+   #remove:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+   }
+   
+   #remove:focus {
+    outline: none;
+   }
+   
+   #remove:active .icon svg {
+    transform: scale(0.8);
+   }
+
+   .buy-now {
+    margin-top: 37px;
+    align-self: center;
+    width: 150px;
+    cursor: pointer;
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: antiquewhite;
+  }
+  
+  .button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.6em 1em;
+    background: #10c919;
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+  
+  .buy-now:hover .button_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+  }
+  
+  .buy-now:active .button_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+  }
