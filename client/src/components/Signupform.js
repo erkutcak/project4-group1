@@ -41,6 +41,9 @@ function SignUpForm({ onLogin }) {
     navigate('/')
 })};
     return (
+        <div className="login-page">
+        <h1 className="neon" data-text="U">Welcome to <span className="flicker-slow">D</span><span className="title-i">I</span><span className="flicker-fast">B</span><span className="title-s">S</span></h1>
+        <h3 className="welcome-motto">"Where first come, first DIBS"</h3>
         <div className="login-container">
             <div className="logo-container">
                 <motion.div style={{ rotate }}>
@@ -86,6 +89,7 @@ function SignUpForm({ onLogin }) {
                 />
                 <button className="btn" type='submit' >{isLoading ? 'Loading...': 'Submit'}</button>
             </form> 
+        </div>
         </div>
     )
 }

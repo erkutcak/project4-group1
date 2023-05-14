@@ -14,7 +14,7 @@
     transition: .4s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
     width: 250px;
-    margin-top: 100px;
+    margin-top: 20;
     margin-left: 160px;
     font-family: 'Quicksand';
   }
@@ -92,8 +92,66 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 200px;
-    margin-top: 120px;
+    margin-left: 230px;
+    margin-top: 20px;
     width: 150px;
     height: 150px;
   }
+
+  .welcome-motto {
+    text-align: center;
+    font-family: 'Caveat', sans-;
+    font-size: 36px;
+    margin-top: -40px;
+    color: #343940;
+  }
+
+  .neon{
+  font-family: 'Quicksand', cursive;
+  font-size:60px;
+  color: #FFD5FF;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  margin: 80px auto 10px 700px;
+  letter-spacing: 8px;
+  text-shadow: 1px 0px 4px #FFD5FF, 2px 0px 4px #FFD5FF, 3px 0px 4px #FFD5FF, 2px 0px 3px #D42CCA, 2px 3px 15px #D42CCA, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #D42CCA,40px 0vw 200px #D42CCA;
+  background-color: #343940;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title-i {
+  font-family: 'Monoton', cursive;
+}
+
+.title-s {
+  font-family: 'Monoton', cursive;
+}
+
+.flicker-slow{
+  animation: flicker 3s linear infinite;
+  font-family: 'Monoton', cursive;
+}
+
+.flicker-fast{
+  animation: flicker 1s linear infinite;
+  font-family: 'Monoton', cursive;
+}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: .99;
+		
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
+}
+
+/* .login-page {
+  background-color: #343940;
+  border-radius: 20px;
+  height: 800px;
+  margin-top: -50px;
+} */
