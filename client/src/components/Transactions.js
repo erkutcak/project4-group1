@@ -32,7 +32,8 @@ function Transactions({user, item}) {
                 <h3 className="transaction-name">Item: {currentItem[0].name}</h3>
                 <h3 className="transaction-price">Price: ${currentItem[0].price}</h3>
                 <h3 className="transaction-seller">Seller: {users?.filter(x => x.id === el.seller_id)[0].username}</h3>
-                <h3 className="transaction-item-id">Item id: {el.item_id}</h3>
+                <h3 className="transaction-date">Date: {transactions[0].created_at}</h3>
+                {/* <h3 className="transaction-item-id">Item id: {el.item_id}</h3> */}
             </li>)
     })
 

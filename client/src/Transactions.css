@@ -115,7 +115,7 @@
     color:#343940;
   }
 
-  .transaction-item-id {
+  .transaction-date {
     display: flex;
     flex-direction: column;
     background-color: #1088c9;
