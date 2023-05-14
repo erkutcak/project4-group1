@@ -7,7 +7,7 @@ function Transactions({user, item}) {
     const [transactions, setTransactions] = useState([])
     const [users, setUsers] = useState([])
     const ref = useRef(null);
-    const { scrollXProgress } = useScroll({ container: ref });
+    const { scrollYProgress } = useScroll({ container: ref });
 
     useEffect(() => { 
         fetch('/users')
@@ -51,7 +51,7 @@ function Transactions({user, item}) {
             r="30"
             pathLength="1"
             className="indicator"
-            style={{ pathLength: scrollXProgress }}
+            style={{ pathLength: scrollYProgress }}
         />
         </svg>
         <ul className='transactions-list' ref={ref}>
