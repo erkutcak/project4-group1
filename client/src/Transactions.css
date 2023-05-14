@@ -1,0 +1,131 @@
+.transactions-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #343940;
+    border-radius: 20px;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.transactions-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.transactions-title {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: antiquewhite;
+    margin: 100px 10px;
+    font-size: 50px;
+}
+
+#tr-progress {
+    position: absolute;
+    top: 390px;
+    left: 80px;
+    transform: rotate(-90deg);
+  }
+  
+  circle {
+    stroke-dashoffset: 0;
+    stroke-width: 15%;
+    fill: none;
+  }
+  
+  .bg {
+    stroke: antiquewhite;
+    opacity: 0.3;
+  }
+  
+  #tr-progress .indicator {
+    stroke: #ff5252;
+  }
+
+  ::-webkit-scrollbar {
+    height: 15px;
+    width: 5px;
+    background: #fff3;
+    -webkit-border-radius: 1ex;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: antiquewhite;
+    -webkit-border-radius: 1ex;
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background: #fff3;
+  }
+
+  .transactions-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .transactions-card {
+    display: flex;
+    flex-direction: row;
+    background-color: #ff5252;
+    border-radius: 10px;
+    max-width: 1070px;
+  }
+
+  .transaction-name {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 120px;
+    align-items: center;
+    color: #343940;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .transaction-price {
+    display: flex;
+    flex-direction: column;
+    background-color: #2e8644;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 120px;
+    align-items: center;
+    color: antiquewhite;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 60px;
+  }
+
+  .transaction-seller {
+    display: flex;
+    flex-direction: column;
+    background-color: #ebc334;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 120px;
+    align-items: center;
+    color: antiquewhite;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 60px;
+    color:#343940;
+  }
+
+  .transaction-item-id {
+    display: flex;
+    flex-direction: column;
+    background-color: #1088c9;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 120px;
+    align-items: center;
+    color: antiquewhite;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 60px;
+    color:antiquewhite;
+  }
