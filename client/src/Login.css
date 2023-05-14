@@ -1,3 +1,9 @@
+.login-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -8,17 +14,18 @@
     transition: .4s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
     width: 250px;
-    margin: 40px auto;
+    margin-top: 20;
+    margin-left: 160px;
     font-family: 'Quicksand';
   }
   
   .form:hover {
     transform: translateX(-0.5em) translateY(-0.5em);
     border: 1px solid #171717;
-    box-shadow: 10px 10px 0px #666666;
+    box-shadow: 10px 10px 0px #f4c524;
   }
   
-  .heading {
+  .login-heading {
     color: black;
     padding-bottom: 2px;
     text-align: center;
@@ -39,7 +46,7 @@
   }
   
   .input:hover {
-    box-shadow: 6px 6px 0px #969696,
+    box-shadow: 6px 6px 0px #f4c524,
                -3px -3px 10px #ffffff;
   }
   
@@ -62,7 +69,7 @@
   }
   
   .form .btn:hover {
-    box-shadow: 6px 6px 0px #969696,
+    box-shadow: 6px 6px 0px #f4c524,
                -3px -3px 10px #ffffff;
     transform: translateX(-0.5em) translateY(-0.5em);
   }
@@ -74,16 +81,77 @@
   }
 
   .logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(244, 197, 36, 0.5), 0 0 20px rgba(244, 197, 36, 0.8);
   }
 
   .logo-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 230px;
+    margin-top: 20px;
     width: 150px;
     height: 150px;
   }
+
+  .welcome-motto {
+    text-align: center;
+    font-family: 'Caveat', sans-;
+    font-size: 36px;
+    margin-top: -40px;
+    color: #343940;
+  }
+
+  .neon{
+  font-family: 'Quicksand', cursive;
+  font-size:60px;
+  color: #FFD5FF;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  margin: 80px auto 10px 700px;
+  letter-spacing: 8px;
+  text-shadow: 1px 0px 4px #FFD5FF, 2px 0px 4px #FFD5FF, 3px 0px 4px #FFD5FF, 2px 0px 3px #D42CCA, 2px 3px 15px #D42CCA, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #D42CCA,40px 0vw 200px #D42CCA;
+  background-color: #343940;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title-i {
+  font-family: 'Monoton', cursive;
+}
+
+.title-s {
+  font-family: 'Monoton', cursive;
+}
+
+.flicker-slow{
+  animation: flicker 3s linear infinite;
+  font-family: 'Monoton', cursive;
+}
+
+.flicker-fast{
+  animation: flicker 1s linear infinite;
+  font-family: 'Monoton', cursive;
+}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: .99;
+		
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
+}
+
+/* .login-page {
+  background-color: #343940;
+  border-radius: 20px;
+  height: 800px;
+  margin-top: -50px;
+} */

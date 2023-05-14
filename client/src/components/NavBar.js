@@ -6,7 +6,7 @@ import logo from "../images/logo.png";
 function NavBar({user, onLogin}) {
 
     const time = useTime();
-    const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
+    const rotate = useTransform(time, [0, 9000], [360, 0], { clamp: false });
 
     function handleLogout() {
         fetch("/logout", {

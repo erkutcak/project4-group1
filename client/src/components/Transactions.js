@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Item from "./Item";
+import "../Transactions.css"
+import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 
 function Transactions({user, item}) {
     const [transactions, setTransactions] = useState([])
     const [users, setUsers] = useState([])
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({ container: ref });
 
     useEffect(() => { 
         fetch('/users')
@@ -21,20 +25,40 @@ function Transactions({user, item}) {
 
     const displayItems = transactions.map(el => {
         const currentItem = item.filter(item => item.id === el.item_id)
-        console.log(currentItem);
+        console.log(currentItem[0].image);
         return (
-            <ul>
-                <h3>seller: {users?.filter(x => x.id === el.seller_id)[0].username}, item id:{el.item_id}</h3> 
-                <h2>item: {currentItem[0].name}, price:{currentItem[0].price} {currentItem[0].image}</h2>
-            </ul>)
+            <li className="transactions-card">
+                <h3 className="transaction-img">{currentItem[0].image}</h3>
+                <h3 className="transaction-name">Item: {currentItem[0].name}</h3>
+                <h3 className="transaction-price">Price: ${currentItem[0].price}</h3>
+                <h3 className="transaction-seller">Seller: {users?.filter(x => x.id === el.seller_id)[0].username}</h3>
+                <h3 className="transaction-date">Date: {transactions[0].created_at}</h3>
+                {/* <h3 className="transaction-item-id">Item id: {el.item_id}</h3> */}
+            </li>)
     })
 
-
-    // console.log(transactions.filter(el => el.buyer_id === user.id))
     return (
-        <div>
-            <h1>Transactions Page</h1>
+        <div className='transactions-container'>
+            <div className="transactions-left">
+                <h1 className="transactions-title">My Past Purchases</h1>
+            </div>
+            <hr className="vl" />
+            <>
+        <svg id="tr-progress" width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
+        <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className="indicator"
+            style={{ pathLength: scrollYProgress }}
+        />
+        </svg>
+        <ul className='transactions-list' ref={ref}>
             {displayItems}
+        </ul>
+        </>
         </div>
     )
     }

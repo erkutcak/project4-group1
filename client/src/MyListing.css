@@ -61,7 +61,7 @@
     background: #fff3;
   }
   
-  li {
+  .listing-items {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,19 +72,73 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
   }
+
+  .listing-price {
+    display: flex;
+    flex-direction: column;
+    background-color: #2e8644;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 120px;
+    align-items: center;
+  }
   
-  li:last-of-type {
+  .listing-name {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 120px;
+    align-items: center;
+    color: #343940;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    height: 40px;
+  }
+  
+  .listing-category {
+    display: flex;
+    padding: 1px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-top: 10px;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    border: 1px solid antiquewhite;
+  }
+  
+  .listing-image {
+      width: 150px;
+      height: 150px;
+      font-size: 8px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.19);
+  }
+  
+  .placeholder-listing {
+    width: 150px;
+    height: 150px;
+    font-size: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.19);
+  }
+  
+  .listing-items:last-of-type {
     margin: 0;
   }
   
-  li img{
+  /* .listing-items img{
     width: 150px;
     height: 150px;
     font-size: 8px;
     border-radius: 10px;
 }
 
-li h2{
+.listing-items h2{
     font-size: 20px;
     margin-top: 10px;
     height: 40px;
@@ -92,7 +146,7 @@ li h2{
     color: white;
 }
 
-li h3{
+.listing-items h3{
     font-size: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -101,12 +155,12 @@ li h3{
     font-weight: 900;
 }
 
-li p{
+.listing-items p{
     font-size: 12px;
     margin-top: 10px;
     font-family: 'Quicksand', sans-serif;
     color: white;
-}
+} */
 
 .buttons {
     display: flex;

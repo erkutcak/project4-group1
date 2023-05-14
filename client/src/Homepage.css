@@ -11,7 +11,7 @@
 .category-container {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, #343940, #757582);
+    background: #343940;
     border-radius: 20px;
     padding: 20px;
     margin-top: 0;

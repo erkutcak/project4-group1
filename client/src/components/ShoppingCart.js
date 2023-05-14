@@ -86,7 +86,7 @@ function ShoppingCart({user, items, cards, setCards, popup4, setPopup4}) {
             style={{ pathLength: scrollXProgress }}
         />
         </svg>
-        <ul ref={ref}>
+        <ul className='cart-list' ref={ref}>
             {displayItems}
             <Popup4 trigger={popup4} setTrigger={setPopup4}>
                     <h3>Thank you for wasting your money with us!</h3>

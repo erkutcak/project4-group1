@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar"
 import { useFormik } from 'formik'
 import * as yup from "yup"
 import '../Sell.css'
 import Popup2 from "./Popup2";
 import '../Popup2.css'
+import logo from "../images/logo.png";
 
 function Sell({ user, onLogin, addItem, setItems, items, popup2, setPopup2 }) {
     const [refreshPage, setRefreshPage] = useState(false);
@@ -57,6 +57,7 @@ function Sell({ user, onLogin, addItem, setItems, items, popup2, setPopup2 }) {
 
 return(
     <div className="sell-container">
+        <img className="sell-logo" src={logo}/>
         <form className="listing-form" onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>
         <p className="heading">Create a Listing</p>
         <label className="form-label" htmlFor="name">Name</label>
@@ -70,7 +71,7 @@ return(
         value={formik.values.name}
         />
         <p style={{ color: "red" }}> {formik.errors.name}</p>
-        <label htmlFor="category">Category</label>
+        <label className="form-label" htmlFor="category">Category</label>
         <br />
         <select id="category" name="category" onChange={formik.handleChange} value={formik.values.category}>
             <option disabled>Select a Category</option>
