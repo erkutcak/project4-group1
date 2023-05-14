@@ -1,3 +1,9 @@
+.login-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -8,7 +14,8 @@
     transition: .4s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
     width: 250px;
-    margin: 40px auto;
+    margin-top: 100px;
+    margin-left: 160px;
     font-family: 'Quicksand';
   }
   
@@ -18,7 +25,7 @@
     box-shadow: 10px 10px 0px #666666;
   }
   
-  .heading {
+  .login-heading {
     color: black;
     padding-bottom: 2px;
     text-align: center;
@@ -74,16 +81,19 @@
   }
 
   .logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.19);
   }
 
   .logo-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 200px;
+    margin-top: 120px;
     width: 150px;
     height: 150px;
   }

@@ -11,7 +11,7 @@ function Login({onLogin}) {
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const time = useTime();
-    const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
+    const rotate = useTransform(time, [0, 7000], [360, 0], { clamp: false });
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -33,12 +33,14 @@ function Login({onLogin}) {
         navigate('/')
       }
     return (
-        <div> 
-          <form className="form" onSubmit={handleSubmit}>
-            <motion.div className="logo-container" style={{ rotate }}>
+        <div className="login-container"> 
+        <div className="logo-container">
+            <motion.div style={{ rotate }}>
               <img className="logo" src={logo}/>
             </motion.div>
-              <p className="heading">Login</p>
+        </div>
+          <form className="form" onSubmit={handleSubmit}>
+              <p className="login-heading">Login</p>
               <label htmlFor="username">Username:</label>
               <input
               className="input"

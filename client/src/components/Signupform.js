@@ -11,7 +11,7 @@ function SignUpForm({ onLogin }) {
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const time = useTime();
-    const rotate = useTransform(time, [0, 4000], [360, 0], { clamp: false });
+    const rotate = useTransform(time, [0, 7000], [360, 0], { clamp: false });
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
@@ -41,48 +41,52 @@ function SignUpForm({ onLogin }) {
     navigate('/')
 })};
     return (
-        <form className="form" onSubmit={handleSubmit}>
-            <motion.div className="logo-container" style={{ rotate }}>
-                <img className="logo" src={logo}/>
-            </motion.div>
-            <p className="heading">Sign Up</p>
-            <label for="username">Username:</label>
-            <input 
-            className="input"
-            type='text'
-            id='username'
-            autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            />
-            <label for="email">Email:</label>
-            <input
-            className="input"
-            type="text"
-            id='email'
-            autoComplete="off"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            <label for="password">Password:</label>
-            <input 
-            className="input"
-            type='password'
-            id='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-            <label for="passwordConfirmation">Password Confirmation:</label>
-            <input 
-            className="input"
-            type='password'
-            id='passwordConfirmation'
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-            autoComplete="current-password"
-            />
-            <button className="btn" type='submit' >{isLoading ? 'Loading...': 'Submit'}</button>
-        </form> 
+        <div className="login-container">
+            <div className="logo-container">
+                <motion.div style={{ rotate }}>
+                    <img className="logo" src={logo}/>
+                </motion.div>
+            </div>
+            <form className="form" onSubmit={handleSubmit}>
+                <p className="login-heading">Sign Up</p>
+                <label for="username">Username:</label>
+                <input 
+                className="input"
+                type='text'
+                id='username'
+                autoComplete="off"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                />
+                <label for="email">Email:</label>
+                <input
+                className="input"
+                type="text"
+                id='email'
+                autoComplete="off"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                />
+                <label for="password">Password:</label>
+                <input 
+                className="input"
+                type='password'
+                id='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                />
+                <label for="passwordConfirmation">Password Confirmation:</label>
+                <input 
+                className="input"
+                type='password'
+                id='passwordConfirmation'
+                value={passwordConfirmation}
+                onChange={(e) => setPasswordConfirmation(e.target.value)}
+                autoComplete="current-password"
+                />
+                <button className="btn" type='submit' >{isLoading ? 'Loading...': 'Submit'}</button>
+            </form> 
+        </div>
     )
 }
 

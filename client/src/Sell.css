@@ -74,6 +74,13 @@
 
   .sell-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+  }
+
+  .sell-logo {
+    margin-left: 30px;
+    margin-right: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
   }
