@@ -72,7 +72,7 @@ return(
         value={formik.values.name}
         />
         <p style={{ color: "red" }}> {formik.errors.name}</p>
-        <label htmlFor="category">Category</label>
+        <label className="form-label" htmlFor="category">Category</label>
         <br />
         <select id="category" name="category" onChange={formik.handleChange} value={formik.values.category}>
             <option disabled>Select a Category</option>

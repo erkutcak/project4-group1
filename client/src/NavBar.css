@@ -71,5 +71,6 @@
   .home-logo {
     width: 90px;
     height: 90px;
-    border-radius: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(244, 197, 36, 0.5), 0 0 20px rgba(244, 197, 36, 0.5);
   }

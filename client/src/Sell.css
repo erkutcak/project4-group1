@@ -26,6 +26,10 @@
     font-size: 30px;
     margin-top: 5px;
   }
+
+  .form-label {
+    font-size: 16px;
+  }
   
   .input {
     border-radius: 5px;
@@ -81,6 +85,6 @@
   .sell-logo {
     margin-left: 30px;
     margin-right: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 10px rgba(244, 81, 36, 0.5), 0 0 20px rgba(244, 81, 36, 0.8);
     border-radius: 50%;
   }
