@@ -10,7 +10,7 @@ import Popup3 from './Popup3'
 
 function MyListing({user, items, setItems, popup3, setPopup3}) { 
     const myListings = items.filter(el => el.user_id === user?.id)
-    const [edit, setEdit] = useState([])
+    const [edit, setEdit] = useState(false)
     const ref = useRef(null);
     const { scrollXProgress } = useScroll({ container: ref });
 
@@ -25,15 +25,30 @@ function MyListing({user, items, setItems, popup3, setPopup3}) {
             },
         })  
     }
-    
+    // const reset = () => {
+        // console.log(items)}
     const handleEdit = (item) => {
+        if (!edit) {
         setEdit(<Edit items={items} setItems={setItems} item={item} popup3={popup3} setPopup3={setPopup3}/>)
+        }else {
+            setEdit(false)
+        }
+        
+        if(edit){
+            console.log(edit.props.item)
+        }
+    }
+    const editToDisplay = (el) => {
+        if(edit){
+            return (edit.props.item === el ? edit : null)
+        }
     }
     const displayItems = (myListings.map(el => {
+        console.log(el)
         return (
             <div>
             <ListingItems item={el} handleDelete={ handleDelete} handleEdit={handleEdit}/> 
-            {edit}
+            {editToDisplay(el)}
             </div>)
     }))
     return (
