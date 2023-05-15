@@ -129,3 +129,9 @@
     margin-left: 60px;
     color:antiquewhite;
   }
+
+  .transaction-img {
+    display: flex;
+    width : 100px;
+    
+  }
