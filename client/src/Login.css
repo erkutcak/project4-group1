@@ -109,13 +109,13 @@
   .neon{
   font-family: 'Quicksand', cursive;
   font-size:60px;
-  color: #FFD5FF;
+  color: #fa7676;
   text-align: center;
   transform: translate(-50%, -50%);
   font-weight: 400;
   margin: 80px auto 10px 700px;
   letter-spacing: 8px;
-  text-shadow: 1px 0px 4px #FFD5FF, 2px 0px 4px #FFD5FF, 3px 0px 4px #FFD5FF, 2px 0px 3px #D42CCA, 2px 3px 15px #D42CCA, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #D42CCA,40px 0vw 200px #D42CCA;
+  text-shadow: 1px 0px 4px #fa7676, 2px 0px 4px #fa7676, 3px 0px 4px #fa7676, 2px 0px 3px #ff5252, 2px 3px 15px #ff5252, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #ff5252,40px 0vw 200px #ff5252;
   background-color: #343940;
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
