@@ -65,7 +65,7 @@
   }
   
   .listing-form .btn:hover {
-    box-shadow: 6px 6px 0px #969696,
+    box-shadow: 6px 6px 0px #ff5252,
                -3px -3px 10px #ffffff;
     transform: translateX(-0.5em) translateY(-0.5em);
   }

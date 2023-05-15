@@ -67,10 +67,14 @@ function ShoppingCart({user, items, cards, setCards, popup4, setPopup4}) {
         setPopup4(true)
     }
 
+    const totalPrice = cards.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+
     return (
         <div className="shopping-cart">
             <div className="cart-left">
                 <h1 className="cart-title">Your Cart</h1>
+                <h3 className="cart-total">Cart Total:</h3>
+                <h2 className="total-amount">$ {totalPrice}</h2>
                 <button className='buy-now' onClick={handleButtonClick}><span class="button_top">Buy Now!</span></button>
             </div>
             <hr className="vl" />

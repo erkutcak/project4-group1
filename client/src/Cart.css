@@ -14,22 +14,38 @@
 
 .cart-title {
     text-align: center;
-}
-
-.buy-now {
-    margin-top: 30px;
-}
-
-.shopping-cart h1{
     font-family: 'Quicksand', sans-serif;
     color: antiquewhite;
-    margin: 100px 10px;
+    margin: 30px 10px;
     font-size: 50px;
 }
+
+.cart-total {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 85px;
+    margin-bottom: 10px;
+    color: antiquewhite;
+    text-decoration: underline;
+}
+
+.total-amount {
+  margin: 0 auto 10px 30px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-width: 120px;
+  align-items: center;
+}
+
   
   #progress {
     position: absolute;
-    top: 390px;
+    top: 300px;
     left: 55px;
     transform: rotate(-90deg);
   }
@@ -124,7 +140,7 @@
 
 #remove {
     width: 150px;
-    height: 50px;
+    height: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
