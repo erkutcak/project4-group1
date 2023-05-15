@@ -83,7 +83,7 @@
     color: #343940;
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
-    margin-left: 20px;
+    margin-left: 40px;
   }
 
   .transaction-price {
@@ -132,6 +132,9 @@
 
   .transaction-img {
     display: flex;
-    width : 100px;
-    
+    flex-direction: column;
+    width : 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 5px 0px 0px 10px;
   }
